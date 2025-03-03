@@ -8,9 +8,10 @@ class Equine(Mammal):
     fur_colour: str 
     teeth_power: int 
     speed: int 
-    patterns: bool  #for simple purposes the equine either has or doesn't have a pattern 
-                    #there is no in between or special patterns :)
+    patterns: str
     height: int
     #not sure about keeping the height but considering that equines come in different sizes
     #maybe keep it but it could also just depend on the type when doing those instead 
-    
+    ride: bool  
+    sleep_standing: bool 
+    IQ: int #follow the equine IQ level
