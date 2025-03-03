@@ -1,4 +1,5 @@
-from animals.Cat import Cat
+from Cat import Cat
+from Otter import Otter
 
 cats = [
     Cat('Yannis', 'M', 'BLACK'),
@@ -12,5 +13,17 @@ cats = [
     Cat('Kyle', 'M', 'INVISIBLE')
 ]
 
-for cat in cats:
-    cat.walk()
+otters = [
+    Otter('John Doe', 'M'),
+    Otter('Jane Doe', 'F'),
+    Otter('Baab', 'M'),
+    Otter('Bobette', 'F'),
+    Otter('Julius Caesar', 'M'),
+    Otter('Julia Caesar', 'F'),
+]
+
+animals = cats + otters
+
+for animal in animals:
+    animal.move(5)
+    animal.move(5)

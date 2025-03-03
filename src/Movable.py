@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from animals.Animal import Animal
+from Animal import Animal
 
 # Interface
 # Defines operations but has no concrete realization
@@ -14,6 +14,5 @@ class Movable(Animal):
     # it makes no sense to have a concrete body for our move function
     # When we raise NotImplementedError, this FORCES all lower classes
     # to implement the method.
-    def move(self: Movable) -> None:
+    def move(self: Movable, duration: int) -> None:
         raise NotImplementedError
-    

@@ -2,7 +2,7 @@ from __future__ import annotations
 import random
 
 # from the Mammal module import the Mammal class
-from animals.Mammal import Mammal
+from Mammal import Mammal
 
 class Cat(Mammal):
     fur_colour: str
@@ -19,10 +19,12 @@ class Cat(Mammal):
         else:
             self.luck = True
         
-    def move(self: Cat) -> None:
-       self.walk()
+    def move(self: Cat, duration: int) -> None:
+       self.walk(duration)
 
-    def walk(self: Cat) -> None:
+    def walk(self: Cat, duration: int) -> None:
+
+        # TODO Cat walk duration is not used :(
 
         # With luck, 3/4 chances to walk
         # No luck, 1/9 chances to walk
