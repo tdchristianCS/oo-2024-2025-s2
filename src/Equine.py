@@ -10,4 +10,7 @@ class Equine(Mammal):
     speed: int 
     patterns: bool  #for simple purposes the equine either has or doesn't have a pattern 
                     #there is no in between or special patterns :)
-    height: int 
+    height: int
+    #not sure about keeping the height but considering that equines come in different sizes
+    #maybe keep it but it could also just depend on the type when doing those instead 
+    
