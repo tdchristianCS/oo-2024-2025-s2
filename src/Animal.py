@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from GameObject import GameObject
+
 class Animal:
     age: int        # This is in seconds
     name: str
