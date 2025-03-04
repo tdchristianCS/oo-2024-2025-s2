@@ -17,7 +17,6 @@ class Equine(Mammal):
     # Maybe this too, can we measure frendliness for all animals, probably but are things like sponges friendly?
     # Would their friendliness be the default of 0, not friendly at all?
     can_neigh: bool
-    stubborness: int 
     trained: bool 
     elegance_pct: int
     can_be_used_by_humans_for_transportation_of_goods_and_humans_or_other_live_things: bool #??? all of this to be a bool
@@ -34,12 +33,9 @@ class Equine(Mammal):
 
         self.fur_colour = fur_colour
         self.teeth_power = teeth_power
-        # Not going to asign a default for speed, leaving that up to the classes below
         self.patterns = patterns 
-        # Same with height
         self.ride = ride 
         self.sleep_standing = sleep_standing
-        # Same with IQ and Friendliness
         self.can_neigh = can_neigh
 
          

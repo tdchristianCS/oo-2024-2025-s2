@@ -8,7 +8,9 @@ class Animal:
     height: int
     IQ: int         
     friendliness: int
-    speed: int 
+    speed: int
+    sstubborness: int 
+
 
     def __init__(self: Animal, name: str, gender: str) -> None:
         # First we create the attributes that came from arguments
