@@ -48,5 +48,5 @@ class Chihauhua(Dog):
 class Mutt(Dog):
     def __init__(self: Mutt, name:str, gender:str) -> None:
         super().__init__(name, gender)
-        self.breed = 'mutt'
+        self.breed = 'mutt' 
 
