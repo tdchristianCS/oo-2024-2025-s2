@@ -11,7 +11,9 @@ class Animal:
     IQ: int         
     friendliness: int
     speed: int
-    sstubborness: int 
+    stubborness: int 
+    domesticablity_pct: int
+
 
 
     def __init__(self: Animal, name: str, gender: str) -> None:

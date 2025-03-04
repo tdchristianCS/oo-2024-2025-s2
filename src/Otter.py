@@ -25,4 +25,3 @@ class Otter(Mammal):
                 self.wetness_fatigue = 100
 
             print(f'{self.name} swam for {duration} seconds. New wetness fatigue: {self.wetness_fatigue}%')
-
