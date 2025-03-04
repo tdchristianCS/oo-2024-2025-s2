@@ -14,9 +14,6 @@ class Dog(Mammal):
         self.lung_capacity = 0
         self.lung_capacity = random.randint(0,50)
 
-        
-
-
     def move(self: Dog, duration: int) -> None:
         self.walk(duration)
 
@@ -37,22 +34,19 @@ class Dog(Mammal):
 
 class Husky(Dog):
     def __init__(self: Husky, name:str, gender:str) -> None:
-        super().__init__(name)
+        super().__init__(name, gender)
         self.breed = 'Husky'
-        self.lung_capacity = 0 
-        self.walk()
+        self.lung_capacity = 50
 
 
 class Chihauhua(Dog):
     def __init__(self: Chihauhua, name:str, gender:str) -> None:
-        super().__init__(name)
+        super().__init__(name, gender)
         self.breed = 'Chihuahua'
         self.lung_capacity -= 30 
-        self.walk()
 
 class Mutt(Dog):
     def __init__(self: Mutt, name:str, gender:str) -> None:
-        super().__init__(name)
+        super().__init__(name, gender)
         self.breed = 'mutt'
-        self.lung_capacity = 0
-        self.walk()
+
