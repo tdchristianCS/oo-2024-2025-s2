@@ -1,5 +1,6 @@
 from Cat import Cat
 from Otter import Otter
+from Shark import Shark
 from Capybara import Capybara
 from Dog import *
 
@@ -30,3 +31,30 @@ dogs = [
     Mutt('Joel', 'M')
 ]
 
+<<<<<<< HEAD
+otters = [
+    Otter('John Doe', 'M'),
+    Otter('Jane Doe', 'F'),
+    Otter('Baab', 'M'),
+    Otter('Bobette', 'F'),
+    Otter('Julius Caesar', 'M'),
+    Otter('Julia Caesar', 'F'),
+]
+
+animals = cats + otters 
+
+for animal in animals:
+    animal.move(5)
+    animal.move(5)
+
+
+sharks = [
+    Shark('Bhalja', 'M'),
+    Shark('Jeff the land shark', 'M'),
+    Shark('Kuba', 'M'),
+    Shark('Banbelena', 'F'),
+    Shark('Elony', 'F'),
+    Shark('Donnie', 'F')
+]
+=======
+>>>>>>> eaddbf992fdda87f24c5c0d9217443fd4bd0a002

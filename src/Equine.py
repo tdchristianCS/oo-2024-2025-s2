@@ -4,13 +4,11 @@ from Mammal import Mammal
 class Equine(Mammal): 
 # Equines are animals that are a part of the horse family
 # such as horses(duh), zebras, ponies, donkeys, mule, etc.
-
-# TODO move different attributes to proper places 
-
     fur_colour: str 
     teeth_power: int 
+    speed: int 
     patterns: str  
-          # Not sure about keeping the height but considering that equines come in different sizes
+    height: int      # Not sure about keeping the height but considering that equines come in different sizes
                      # maybe keep it but it could also just depend on the type when doing those instead 
     ride: bool  
     sleep_standing: bool  
