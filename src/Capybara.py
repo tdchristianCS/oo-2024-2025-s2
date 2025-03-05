@@ -23,8 +23,8 @@ class Capybara(Rodent):
         if self.swim_energy_meter < 0:
             # we ran out of energy, so we deduct frmo durationSwam
 
+            durationSwam -= duration / tiredness_factor
             self.swim_energy_meter = 0
-
 
         print(f'{self.name} swam for {durationSwam} seconds. The swim energy meter is {self.swim_energy_meter}.')
 
