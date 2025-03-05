@@ -2,7 +2,8 @@ from __future__ import annotations
 import random
 
 # from the Mammal module import the Mammal class
-from Mammal import Mammal
+from animals.Mammal import Mammal
+from foods.Food import Meat
 
 class Cat(Mammal):
     fur_colour: str
@@ -10,6 +11,11 @@ class Cat(Mammal):
 
     def __init__(self: Cat, name: str, gender: str, fur_colour: str) -> None:
         super().__init__(name, gender, fur_colour)
+
+        self.friendliness = 50
+        self.speed = 40
+        self.size = 25
+        self.diet = [Meat]
 
         # We can do some logic with a DERIVED attribute!!
         if self.fur_colour == 'BLACK':

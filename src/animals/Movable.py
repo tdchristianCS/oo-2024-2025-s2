@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from Animal import Animal
+from animals.Animal import Animal
 
 # Interface
 # Defines operations but has no concrete realization

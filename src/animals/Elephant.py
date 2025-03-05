@@ -1,6 +1,6 @@
 from Movable import Movable
 import random
-from Animal import Animal
+from animals.Animal import Animal
 
 class Elephant(Movable):
     trunk_length: int

@@ -1,7 +1,8 @@
 from __future__ import annotations
 import random
 
-from Rodent import Rodent
+from animals.Rodent import Rodent
+from foods.Food import Apple
 
 class Capybara(Rodent):
    
@@ -10,6 +11,11 @@ class Capybara(Rodent):
     def __init__(self: Capybara, name: str, gender: str, fur_colour: str, size: int, diet: list[str]) -> None:
         super().__init__(name, gender, fur_colour, size, diet)
         self.swim_energy_meter = 100
+
+        self.friendliness = 100
+        self.speed = 25
+        self.size = 35
+        self.diet = [Apple]
 
     def move(self: Capybara, duration: int) -> None:
         self.swim(duration)

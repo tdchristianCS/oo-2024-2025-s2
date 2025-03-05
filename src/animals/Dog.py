@@ -2,17 +2,21 @@ from __future__ import annotations
 import random
 
 # from the Mammal module import the Mammal class
-from Mammal import Mammal
-
+from animals.Mammal import Mammal
+from foods.Food import Meat
 
 class Dog(Mammal):
-    breed: str
     loudness_bark: int
 
     def __init__(self: Dog, name: str, gender: str, fur_colour: str) -> None:
         super().__init__(name, gender, fur_colour)
         self.lung_capacity = 0
         self.lung_capacity = random.randint(0,50)
+
+        self.friendliness = 80
+        self.speed = 50
+        self.size = 50
+        self.diet = [Meat]
 
     def move(self: Dog, duration: int) -> None:
         self.walk(duration)
@@ -34,19 +38,16 @@ class Dog(Mammal):
 
 class Husky(Dog):
     def __init__(self: Husky, name:str, gender:str) -> None:
-        super().__init__(name, gender)
-        self.breed = 'Husky'
+        super().__init__(name, gender, 'grey')
         self.lung_capacity = 50
 
 
 class Chihauhua(Dog):
     def __init__(self: Chihauhua, name:str, gender:str) -> None:
-        super().__init__(name, gender)
-        self.breed = 'Chihuahua'
+        super().__init__(name, gender, 'beige')
         self.lung_capacity -= 30 
 
 class Mutt(Dog):
-    def __init__(self: Mutt, name:str, gender:str) -> None:
-        super().__init__(name, gender)
-        self.breed = 'mutt' 
+    def __init__(self: Mutt, name:str, gender:str, fur_colour: str) -> None:
+        super().__init__(name, gender, fur_colour)
 

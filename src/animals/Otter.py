@@ -1,14 +1,21 @@
 from __future__ import annotations
 import random
 
-from Mammal import Mammal
+from animals.Mammal import Mammal
+from foods.Food import Apple
 
 class Otter(Mammal):
     wetness_fatigue: int
     
-    def __init__(self: Otter, name: str, gender: str, fur_colour: str) -> None:
-        super().__init__(name, gender, fur_colour)
+    def __init__(self: Otter, name: str, gender: str) -> None:
+        super().__init__(name, gender, 'brown')
         self.wetness_fatigue = 0
+
+        self.friendliness = 30
+        self.speed = 20
+        self.size = 20
+        self.diet = [Apple]
+
 
     def move(self: Otter, duration: int) -> None:
         self.swim(duration)

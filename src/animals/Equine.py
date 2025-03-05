@@ -1,5 +1,5 @@
 from __future__ import annotations 
-from Mammal import Mammal 
+from animals.Mammal import Mammal 
 
 class Equine(Mammal): 
 # Equines are animals that are a part of the horse family

@@ -1,7 +1,7 @@
 from __future__ import annotations
 import random
 
-from Fish import Fish 
+from animals.Fish import Fish 
 
 class Shark(Fish):
     number_of_fish_eaten: int 

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from Movable import Movable
+from animals.Movable import Movable
 
 class Fish(Movable):
 

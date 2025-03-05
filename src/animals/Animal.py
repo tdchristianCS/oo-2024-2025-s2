@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from GameObject import GameObject
+from game.GameObject import GameObject
 from foods.Food import Food
 
 class Animal:
@@ -8,12 +8,11 @@ class Animal:
     name: str
     gender: str
     n_legs: int
-    height: int
-    IQ: int         
+    # IQ: int         
     friendliness: int
     speed: int
-    stubborness: int 
-    domesticablity_pct: int
+    # stubborness: int 
+    # domesticablity_pct: int
     size: float
     diet: list[Food]
     can_ride: bool
