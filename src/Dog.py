@@ -9,8 +9,8 @@ class Dog(Mammal):
     breed: str
     loudness_bark: int
 
-    def __init__(self: Dog, name: str, gender: str,) -> None:
-        super().__init__(name, gender)
+    def __init__(self: Dog, name: str, gender: str, fur_colour: str) -> None:
+        super().__init__(name, gender, fur_colour)
         self.lung_capacity = 0
         self.lung_capacity = random.randint(0,50)
 

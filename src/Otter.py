@@ -6,8 +6,8 @@ from Mammal import Mammal
 class Otter(Mammal):
     wetness_fatigue: int
     
-    def __init__(self: Otter, name: str, gender: str) -> None:
-        super().__init__(name, gender)
+    def __init__(self: Otter, name: str, gender: str, fur_colour: str) -> None:
+        super().__init__(name, gender, fur_colour)
         self.wetness_fatigue = 0
 
     def move(self: Otter, duration: int) -> None:

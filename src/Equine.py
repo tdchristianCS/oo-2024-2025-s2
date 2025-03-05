@@ -27,29 +27,19 @@ class Equine(Mammal):
     herd_animal: bool 
 
 
-    def __init__(self: Equine, name: str, gender: str, fur_colour: str, teeth_power: int, patterns: str, ride: bool, sleep_standing: bool, can_neigh: bool, betable: bool, can_be_made_into_materials: bool, stable_worthy: bool, herd_animal: bool) -> None:
-        super().__init__(name, gender)
+    # def __init__(self: Equine, name: str, gender: str, fur_colour: str, teeth_power: int, patterns: str, ride: bool, sleep_standing: bool, can_neigh: bool, betable: bool, can_be_made_into_materials: bool, stable_worthy: bool, herd_animal: bool) -> None:
+    #     super().__init__(name, gender, fur_colour)
 
-        self.fur_colour = fur_colour
-        self.teeth_power = teeth_power
-        self.patterns = patterns 
-        self.ride = ride 
-        self.sleep_standing = sleep_standing
-        self.can_neigh = can_neigh
-        self.betable = betable 
-        self.can_be_made_into_materials = can_be_made_into_materials
-        self.stable_worthy = stable_worthy 
-        self.herd_animal = herd_animal
+    #     self.teeth_power = teeth_power
+    #     self.patterns = patterns 
+    #     self.ride = ride 
+    #     self.sleep_standing = sleep_standing
+    #     self.can_neigh = can_neigh
+    #     self.betable = betable 
+    #     self.can_be_made_into_materials = can_be_made_into_materials
+    #     self.stable_worthy = stable_worthy 
+    #     self.herd_animal = herd_animal
 
-
-
-
-         
-
-
-
-
-
-
-
-
+    def __init__(self: Equine, name: str, gender: str, fur_colour: str) -> None:
+        super().__init__(name, gender, fur_colour)
+        self.can_ride = True

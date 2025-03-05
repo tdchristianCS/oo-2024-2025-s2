@@ -9,9 +9,7 @@ class Cat(Mammal):
     luck: bool
 
     def __init__(self: Cat, name: str, gender: str, fur_colour: str) -> None:
-        super().__init__(name, gender)
-
-        self.fur_colour = fur_colour
+        super().__init__(name, gender, fur_colour)
 
         # We can do some logic with a DERIVED attribute!!
         if self.fur_colour == 'BLACK':
