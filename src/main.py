@@ -14,90 +14,41 @@ import pygame
 from game import tools
 gs = tools.GameState()
 
+W = 1680
+H = 900
+
 # Set up the window
 pygame.init()
-pygame.display.set_caption('My very first pygame GUI')
-window = pygame.display.set_mode([400, 400])
+pygame.display.set_caption('Noah\'s Ark')
+window = pygame.display.set_mode([W, H])
 
 # Initialize game variables
-gs.player_x = 200
-gs.player_y = 200
-gs.direction = ''
+
+# Images
+img_bg = pygame.image.load('src/assets/bg.png')
+img_bg = pygame.transform.scale(img_bg, (W, H))
 
 # Set up FPS
-gs.set_fps(30)
+gs.set_fps(60)
 
 # Functions
 
-def change_direction(event) -> None:
-    """
-    Change the player's movement direction using
-    WASD or arrow keys.
-    """
+def draw_bg(surface) -> None:
+    surface.blit(img_bg, (0, 0))
 
-    if event.key in [pygame.K_w, pygame.K_UP]:
-        gs.direction = 'N'
-
-    elif event.key in [pygame.K_s, pygame.K_DOWN]:
-        gs.direction = 'S'
-
-    elif event.key in [pygame.K_a, pygame.K_LEFT]:
-        gs.direction = 'W'
-
-    elif event.key in [pygame.K_d, pygame.K_RIGHT]:
-        gs.direction = 'E'
-
-    print(f'Player direction changed to {gs.direction}')
-
-def move() -> None:
-    """
-    Move the player according to the direction it's facing.
-    """
-
-    if gs.direction == 'N':
-        if gs.player_y > 25:
-            gs.player_y -= 10
-
-    elif gs.direction == 'S':
-        if gs.player_y < 375:
-            gs.player_y += 10
-
-    elif gs.direction == 'W':
-        if gs.player_x > 25:
-            gs.player_x -= 10
-
-    elif gs.direction == 'E':
-        if gs.player_x < 375:
-            gs.player_x += 10
-
-    print(f'Player moved to ({gs.player_x}, {gs.player_y})')
-
-# Main loop
-running = True
-while running:
-
-    # Catch all events
+gs.running = True
+while gs.running:
+    # Check events
     for event in pygame.event.get():
+
+        # User clicks window close button
         if event.type == pygame.QUIT:
-            running = False
-
-        elif event.type == pygame.KEYDOWN:
-            change_direction(event)
+            gs.running = False
     
-    # Move
-    move()
-    
-    # Draw the background
-    pygame.draw.rect(window, 'black', (0, 0, 400, 400))
-
-    # Draw the player
-    pygame.draw.circle(window, 'white', (gs.player_x, gs.player_y), 20)
+    draw_bg(window)
 
     # Update the display
     pygame.display.flip()
-
-    # Wait for next frame
-    gs.wait_fps()
 
 # Quit the window
 pygame.quit()
