@@ -5,6 +5,8 @@ class Animal:
     name: str
     gender: str
     n_legs: int
+    n_fins: int 
+    size: int 
 
     def __init__(self: Animal, name: str, gender: str) -> None:
         # First we create the attributes that came from arguments

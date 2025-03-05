@@ -1,5 +1,6 @@
 from Cat import Cat
 from Otter import Otter
+from Shark import Shark
 
 cats = [
     Cat('Yannis', 'M', 'BLACK'),
@@ -22,8 +23,18 @@ otters = [
     Otter('Julia Caesar', 'F'),
 ]
 
-animals = cats + otters
+animals = cats + otters 
 
 for animal in animals:
     animal.move(5)
     animal.move(5)
+
+
+sharks = [
+    Shark('Bhalja', 'M'),
+    Shark('Jeff the land shark', 'M'),
+    Shark('Kuba', 'M'),
+    Shark('Banbelena', 'F'),
+    Shark('Elony', 'F'),
+    Shark('Donnie', 'F')
+]
