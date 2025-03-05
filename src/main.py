@@ -1,19 +1,37 @@
 from Cat import Cat
 from Otter import Otter
 from Shark import Shark
+from Capybara import Capybara
+from Dog import *
 
-cats = [
-    Cat('Yannis', 'M', 'BLACK'),
-    Cat('Edwin', 'M', 'ORANGE'),
-    Cat('Jonathan', 'M', 'NEON'),
-    Cat('Daniel', 'M', 'GREEN'),
-    Cat('Giovanni', 'M', 'BROWN'),
-    Cat('Michael', 'M', 'RED'),
-    Cat('Julia', 'F', 'PURPLEYELLOW'),
-    Cat('Dylan', 'M', 'TUXEDO'),
-    Cat('Kyle', 'M', 'INVISIBLE')
+Capybaras = [
+    Capybara("John Capybara", "M", "brown", 125, ["grass"]),
+    Capybara("Jane Capybara", "F", "brown", 120, ["grass"])
+]
+for i in Capybaras:
+    i.swim(999999)
+
+# cats = [
+#     Cat('Yannis', 'M', 'BLACK'),
+#     Cat('Edwin', 'M', 'ORANGE'),
+#     Cat('Jonathan', 'M', 'NEON'),
+#     Cat('Daniel', 'M', 'GREEN'),
+#     Cat('Giovanni', 'M', 'BROWN'),
+#     Cat('Michael', 'M', 'RED'),
+#     Cat('Julia', 'F', 'PURPLEYELLOW'),
+#     Cat('Dylan', 'M', 'TUXEDO'),
+#     Cat('Kyle', 'M', 'INVISIBLE')
+# ]
+dogs = [
+    Husky('Ethan Thomas', 'M'),
+    Chihauhua('Josh Payne', 'M'),
+    Mutt('Owen Dryer', 'M'),
+    Mutt('Joel Nosenan', 'M'),
+    Mutt('Daniel', 'M'),
+    Mutt('Joel', 'M')
 ]
 
+<<<<<<< HEAD
 otters = [
     Otter('John Doe', 'M'),
     Otter('Jane Doe', 'F'),
@@ -38,3 +56,5 @@ sharks = [
     Shark('Elony', 'F'),
     Shark('Donnie', 'F')
 ]
+=======
+>>>>>>> eaddbf992fdda87f24c5c0d9217443fd4bd0a002
