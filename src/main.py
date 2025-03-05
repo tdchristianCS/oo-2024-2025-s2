@@ -1,7 +1,7 @@
 from Cat import Cat
 from Otter import Otter
 from Capybara import Capybara
-
+from Dog import *
 
 Capybaras = [
     Capybara("John Capybara", "M", "brown", 125, ["grass"]),
@@ -21,4 +21,12 @@ for i in Capybaras:
 #     Cat('Dylan', 'M', 'TUXEDO'),
 #     Cat('Kyle', 'M', 'INVISIBLE')
 # ]
+dogs = [
+    Husky('Ethan Thomas', 'M'),
+    Chihauhua('Josh Payne', 'M'),
+    Mutt('Owen Dryer', 'M'),
+    Mutt('Joel Nosenan', 'M'),
+    Mutt('Daniel', 'M'),
+    Mutt('Joel', 'M')
+]
 
