@@ -17,7 +17,7 @@ class Horse(Equine):
 
         self.friendliness = 80
         self.speed = 70
-        self.size = 65
+        self.size = 110
         self.diet = [Apple]
 
 

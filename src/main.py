@@ -12,6 +12,11 @@ import pygame
 
 # Create a GameState object to store global variables
 from game.Game import Game, GameState
+from game.GameObject import GameObject
+
+from animals.Cat import Cat
+from animals.Capybara import Capybara
+from animals.Horse import Horse
 
 W = 1680
 H = 900
@@ -25,6 +30,14 @@ window = pygame.display.set_mode([W, H])
 game = Game()
 gsRunning = GameState('running')
 gsQuit = GameState('quit')
+
+# Animals
+game.objects.extend([
+    GameObject(Cat('Dinky', 'M', 'brown'), (100, 100)),
+    GameObject(Cat('Army', 'F', 'black'), (200, 200)),
+    GameObject(Capybara('Pinky', 'M', 'pink'), (400, 400)),
+    GameObject(Horse('Stinky', 'F', 'white'), (300, 300)),
+])
 
 # Images
 img_bg = pygame.image.load('src/assets/bg.png')
@@ -45,7 +58,10 @@ while game.state == gsRunning:
         if event.type == pygame.QUIT:
             game.state = gsQuit
     
+    # Draw
     draw_bg(window)
+    for o in game.objects:
+        o.draw(window)
 
     # Update the display
     pygame.display.flip()

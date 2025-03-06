@@ -14,7 +14,7 @@ class Cat(Mammal):
 
         self.friendliness = 50
         self.speed = 40
-        self.size = 25
+        self.size = 30
         self.diet = [Meat]
 
         # We can do some logic with a DERIVED attribute!!

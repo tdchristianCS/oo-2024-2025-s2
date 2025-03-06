@@ -8,13 +8,13 @@ class Capybara(Rodent):
    
     swim_energy_meter: int
 
-    def __init__(self: Capybara, name: str, gender: str, fur_colour: str, size: int, diet: list[str]) -> None:
-        super().__init__(name, gender, fur_colour, size, diet)
+    def __init__(self: Capybara, name: str, gender: str, fur_colour: str) -> None:
+        super().__init__(name, gender, fur_colour)
         self.swim_energy_meter = 100
 
         self.friendliness = 100
         self.speed = 25
-        self.size = 35
+        self.size = 25
         self.diet = [Apple]
 
     def move(self: Capybara, duration: int) -> None:

@@ -1,4 +1,5 @@
 from __future__ import annotations
+import pygame.transform
 
 from game.Point import Point
 from game.Entity import Entity
@@ -10,8 +11,11 @@ class GameObject:
     entity: Entity
 
     def __init__(self: GameObject, entity: Entity, point: Point) -> None:
-        self.animal, self.point = entity, point
+        self.entity, self.point = entity, point
         self.image = self.entity.image
+
+        self.image = pygame.transform.scale_by(self.image, 0.5 + (self.entity.size / 100))
+
         self.rect = None
 
     def draw(self: GameObject, surface: object) -> None:
