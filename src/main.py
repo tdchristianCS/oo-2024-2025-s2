@@ -11,8 +11,7 @@ print(MSG)
 import pygame
 
 # Create a GameState object to store global variables
-from game import tools
-gs = tools.GameState()
+from game.Game import Game, GameState
 
 W = 1680
 H = 900
@@ -23,27 +22,28 @@ pygame.display.set_caption('Noah\'s Ark')
 window = pygame.display.set_mode([W, H])
 
 # Initialize game variables
+game = Game()
+gsRunning = GameState('running')
+gsQuit = GameState('quit')
 
 # Images
 img_bg = pygame.image.load('src/assets/bg.png')
 img_bg = pygame.transform.scale(img_bg, (W, H))
-
-# Set up FPS
-gs.set_fps(60)
 
 # Functions
 
 def draw_bg(surface) -> None:
     surface.blit(img_bg, (0, 0))
 
-gs.running = True
-while gs.running:
+game.state = gsRunning
+
+while game.state == gsRunning:
     # Check events
     for event in pygame.event.get():
 
         # User clicks window close button
         if event.type == pygame.QUIT:
-            gs.running = False
+            game.state = gsQuit
     
     draw_bg(window)
 
