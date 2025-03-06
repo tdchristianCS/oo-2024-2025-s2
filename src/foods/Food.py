@@ -1,6 +1,8 @@
 from __future__ import annotations
 
-class Food:
+from game.Entity import Entity
+
+class Food(Entity):
     name: str
     hp_added: int
 
