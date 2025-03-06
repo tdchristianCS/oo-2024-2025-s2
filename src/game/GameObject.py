@@ -9,8 +9,9 @@ class GameObject:
     rect: object
     entity: Entity
 
-    def __init__(self: GameObject, entity: Entity, point: Point, image: object) -> None:
-        self.animal, self.point, self.image = entity, point, image
+    def __init__(self: GameObject, entity: Entity, point: Point) -> None:
+        self.animal, self.point = entity, point
+        self.image = self.entity.image
         self.rect = None
 
     def draw(self: GameObject, surface: object) -> None:
