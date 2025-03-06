@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-from game.GameObject import GameObject
+from game.Entity import Entity
 from foods.Food import Food
 
-class Animal:
+class Animal(Entity):
     age: int        # This is in seconds
     name: str
     gender: str
@@ -16,8 +16,10 @@ class Animal:
     size: float
     diet: list[Food]
     can_ride: bool
+    image: object
 
     def __init__(self: Animal, name: str, gender: str) -> None:
+        super().__init__()
         # First we create the attributes that came from arguments
         self.name = name
         self.gender = gender
