@@ -1,0 +1,4 @@
+fur_colour,brown
+fur_colour,grey
+name,Patches
+name,Oliphant

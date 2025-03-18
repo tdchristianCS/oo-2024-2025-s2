@@ -20,4 +20,7 @@ class GameObject:
 
     def draw(self: GameObject, surface: object) -> None:
         self.rect = surface.blit(self.image, (self.point))
+
+    def draw_hitbox(self: GameObject, surface: object) -> None:
+        pygame.draw.rect(surface, '#ff00ff', self.rect, 2)
     

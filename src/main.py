@@ -62,6 +62,7 @@ while game.state == gsRunning:
     draw_bg(window)
     for o in game.objects:
         o.draw(window)
+        o.draw_hitbox(window)
 
     # Update the display
     pygame.display.flip()

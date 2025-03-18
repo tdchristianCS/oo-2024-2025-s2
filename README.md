@@ -34,3 +34,15 @@ keyboard-controlled PC with pokeballs and can capture animals
 fights -- killing vs. eating
 animal types?
 
+
+## TODO
+
+* Spawn animals at legitimate coordinates (not in water)
+* Have animals move around randomly
+* Prevent animals from going in the water
+
+* Add more types of animals
+
+* Add animal fighting. Weaknesses/strengths? Food chain? RPS?
+
+* Need a player (need art!) who can move and do things
