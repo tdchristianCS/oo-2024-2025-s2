@@ -4,7 +4,7 @@ from animals.Movable import Movable
 
 class Fish(Movable):
 
-    def __init__(self: Fish, name: str, gender: str) -> None:
+    def __init__(self: Fish, name: str, gender: str, colour: str) -> None:
 
         # This is one of those lines to just learn :(
         # It means use the parent (Animal)'s init method

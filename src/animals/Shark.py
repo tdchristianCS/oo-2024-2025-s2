@@ -8,8 +8,8 @@ class Shark(Fish):
     size_of_shark: int 
 
     def __init__(self: Shark, name: str, gender: str) -> None:
-        super().__init__(name, gender)
-        self.number_of_fish_eaten = 0 
+        super().__init__(name, gender, 'grey')
+        self.number_of_fish_eaten = 0
         self.size_of_shark = 5
     
     def swim(self: Shark, duration: int) -> None: 
