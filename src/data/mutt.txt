@@ -1,0 +1,11 @@
+name::ben::grey
+name::lucy::brown
+name::max::black
+name::bella::white
+name::charlie::golden
+name::daisy::spotted
+name::milo::tan
+name::luna::cream
+name::rocky::brindle
+name::zoe::red
+name::buddy::silver

@@ -1,0 +1,9 @@
+name::Namor
+name::Luna
+name::Frank
+name::Thor
+name::Loki
+name::Iron Man
+name::Thanos
+name::Spider-Man
+name::Ultron
