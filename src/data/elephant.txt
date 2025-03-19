@@ -1,5 +1,4 @@
 name::Nibbles
 name::Whiskers
-name::Cthelephant
+name::Cthulephant
 name::Pibbles
-name::
