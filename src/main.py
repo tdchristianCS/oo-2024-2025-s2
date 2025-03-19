@@ -20,13 +20,20 @@ from animals.Capybara import Capybara
 from animals.Horse import Horse
 
 # Make game object
-# game = Game(1680, 900)
-game = Game(1400, 800)
+game = Game(1680, 900)
+# game = Game(1400, 800)
 
 # Set up the window
 pygame.init()
 pygame.display.set_caption('Noah\'s Ark')
 window = pygame.display.set_mode([game.width, game.height])
+
+# Font
+pygame.font.init()
+font_debug = pygame.font.SysFont('Courier New', 24)
+
+# Clipboard
+pygame.scrap.init()
 
 # Initialize game variables
 gsRunning = GameState('running')
@@ -53,6 +60,7 @@ game.set_level(level)
 game.state = gsRunning
 
 while game.state == gsRunning:
+
     # Check events
     for event in pygame.event.get():
 
@@ -61,7 +69,18 @@ while game.state == gsRunning:
             game.state = gsQuit
 
         elif event.type == pygame.MOUSEMOTION:
-            print(pygame.mouse.get_pos())
+            pos = pygame.mouse.get_pos()
+            debug_text = font_debug.render(str(pos), False, (255, 255, 255))
+
+# TODO
+        # elif event.type == pygame.MOUSEBUTTONDOWN:
+        #     pos = pygame.mouse.get_pos()
+
+        #     # Left
+        #     if pygame.mouse.get_pressed()[0]:
+        #         pygame.scrap.put(pygame.SCRAP_TEXT, 'chung'.encode())
+                # pygame.scrap.put(pygame.SCRAP_TEXT, str(pos).encode())
+            
     
     # Draw
     game.level.draw(window)
@@ -70,6 +89,8 @@ while game.state == gsRunning:
     for o in game.objects:
         o.draw(window)
         o.draw_hitbox(window) # Debugging
+
+    window.blit(debug_text, (game.width // 2, game.height - 40)) # Debugging
 
     # Update the display
     pygame.display.flip()
