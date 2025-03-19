@@ -65,11 +65,11 @@ while game.state == gsRunning:
     
     # Draw
     game.level.draw(window)
-    game.level.draw_water(window)
+    game.level.draw_water(window) # Debugging
 
     for o in game.objects:
         o.draw(window)
-        o.draw_hitbox(window)
+        o.draw_hitbox(window) # Debugging
 
     # Update the display
     pygame.display.flip()

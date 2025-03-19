@@ -43,4 +43,4 @@ class Level:
 
     def draw_water(self: Level, surface: object) -> None:
         for rect in self.water_rects:
-            pygame.draw.rect(surface, '#0033ff', rect)
+            pygame.draw.rect(surface, '#0066ff', rect)
