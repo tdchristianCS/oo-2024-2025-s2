@@ -19,7 +19,8 @@ from animals.Capybara import Capybara
 from animals.Horse import Horse
 
 # Make game object
-game = Game(1680, 900)
+# game = Game(1680, 900)
+game = Game(1400, 800)
 
 # Set up the window
 pygame.init()
@@ -58,6 +59,9 @@ while game.state == gsRunning:
         # User clicks window close button
         if event.type == pygame.QUIT:
             game.state = gsQuit
+
+        elif event.type == pygame.MOUSEMOTION:
+            print(pygame.mouse.get_pos())
     
     # Draw
     draw_bg(window)
