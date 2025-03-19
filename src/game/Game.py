@@ -3,6 +3,7 @@ import pygame
 import random
 
 from game.GameObject import GameObject
+from game.Entity import Entity
 from game.Point import Point
 from animals.Animal import Animal
 from animals.Capybara import Capybara
@@ -16,15 +17,19 @@ from animals.Shark import Shark
 
 MIN_ANIMALS = 2
 MAX_ANIMALS = 20
-ANIMALS = [Capybara, Cat, Dog, Elephant, Horse, Otter, Rat, Shark]
+# ANIMALS = [Capybara, Cat, Dog, Elephant, Horse, Otter, Rat, Shark]
+ANIMALS = [Cat]
 
 class Game:
     objects: GameObject
     state: GameState
+    width: int
+    height: int
 
-    def __init__(self: Game) -> None:
+    def __init__(self: Game, width: int, height: int) -> None:
         self.state = None
         self.objects = []
+        self.width, self.height = width, height
 
     def spawn_animals(self: Game) -> None:
         n_animals = random.randint(MIN_ANIMALS, MAX_ANIMALS)
@@ -34,15 +39,26 @@ class Game:
 
     def spawn_animal(self: Game) -> GameObject:
         animal = self.choose_animal()
-        point = self.choose_point()
+        point = self.choose_point(animal)
         return GameObject(animal, point)
     
     def choose_animal(self: Game) -> Animal:
         animal_class = random.choice(ANIMALS)
         return animal_class.make_random()
     
-    def choose_point(self: Game) -> Point:
-        return None
+    def choose_point(self: Game, entity: Entity) -> Point:
+        w = entity.image.get_width()
+        h = entity.image.get_height()
+        min_x = round(w / 2)
+        min_y = round(h / 2)
+        max_x = self.width - min_x
+        max_y = self.height - min_y
+
+        # TODO impassable terrain...
+
+        x = random.randint(min_x, max_x)
+        y = random.randint(min_y, max_y)
+        return Point(x, y)
 
 class GameState:
     """

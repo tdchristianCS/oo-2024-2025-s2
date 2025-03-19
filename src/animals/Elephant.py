@@ -1,4 +1,4 @@
-from Movable import Movable
+from animals.Movable import Movable
 import random
 from animals.Animal import Animal
 

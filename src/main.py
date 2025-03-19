@@ -18,16 +18,15 @@ from animals.Cat import Cat
 from animals.Capybara import Capybara
 from animals.Horse import Horse
 
-W = 1680
-H = 900
+# Make game object
+game = Game(1680, 900)
 
 # Set up the window
 pygame.init()
 pygame.display.set_caption('Noah\'s Ark')
-window = pygame.display.set_mode([W, H])
+window = pygame.display.set_mode([game.width, game.height])
 
 # Initialize game variables
-game = Game()
 gsRunning = GameState('running')
 gsQuit = GameState('quit')
 
@@ -43,7 +42,7 @@ game.spawn_animals()
 
 # Images
 img_bg = pygame.image.load('src/assets/bg.png')
-img_bg = pygame.transform.scale(img_bg, (W, H))
+img_bg = pygame.transform.scale(img_bg, (game.width, game.height))
 
 # Functions
 
