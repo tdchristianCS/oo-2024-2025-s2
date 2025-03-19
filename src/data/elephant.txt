@@ -1,5 +1,10 @@
 name::Nibbles
 name::Whiskers
+<<<<<<< HEAD
 name::Cthelephant
 name::Pibbles
 name::Cellophane
+=======
+name::Cthulephant
+name::Pibbles
+>>>>>>> fc22ce59665c265053160e6346a596782fb16791
