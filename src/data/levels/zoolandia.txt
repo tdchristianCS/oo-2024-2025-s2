@@ -1,0 +1,4 @@
+; impassible type::top left x,y::bottom right x,y
+
+; this is one water rectangle
+water::260,6::318::85

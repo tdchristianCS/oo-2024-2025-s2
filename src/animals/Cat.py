@@ -23,7 +23,7 @@ class Cat(Mammal):
         fur_colours = []
         names = []
 
-        with open('src/data/cat.txt', 'r') as f:
+        with open('src/data/animals/cat.txt', 'r') as f:
             for line in f.readlines():
                 line = line.strip()
 
