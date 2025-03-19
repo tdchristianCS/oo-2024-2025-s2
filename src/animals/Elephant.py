@@ -17,16 +17,17 @@ class Elephant(Movable):
             status = 'is unaffected'
         elif power < 13:
             strike = 'effective'
-            status = 'has been slapped silly'
+            status = 'sgerjlsgerlj'
         elif power < 20:
             strike = 'very effective'
-            status = 'has no width anymore'
+            status = 'width =  0'
         else:
             strike = 'extremely effective'
             status = 'has been disintegrated by the atmosphere'
         print(f'The attack was {strike}. {target} {status}')
 
     def chase(self, target:Animal):
-        while Animal.health_points >= 0:
+        while target.health_points >= 0:
             self.trunk_slap(target)
             self.move(10)
+
