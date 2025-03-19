@@ -1,0 +1,15 @@
+; A line that starts with a semicolon ; is a comment
+; so you can document things
+; These lines will not be parsed :)
+; The separator is ::
+
+; For name, an optional 3rd segment may be provided specifying gender
+; If none is specified it will be available for both
+
+fur_colour::gray
+fur_colour::pink
+fur_colour::grayishpink
+name::John::M
+name::Jane::F
+name::Mallory::M
+name::Alice::F
