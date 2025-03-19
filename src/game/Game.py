@@ -5,6 +5,8 @@ import random
 from game.GameObject import GameObject
 from game.Entity import Entity
 from game.Point import Point
+from game.Level import Level
+
 from animals.Animal import Animal
 from animals.Capybara import Capybara
 from animals.Cat import Cat
@@ -25,11 +27,16 @@ class Game:
     state: GameState
     width: int
     height: int
+    level: Level
 
     def __init__(self: Game, width: int, height: int) -> None:
         self.state = None
         self.objects = []
         self.width, self.height = width, height
+        self.level = None
+
+    def set_level(self: Game, level: Level) -> None:
+        self.level = level
 
     def spawn_animals(self: Game) -> None:
         n_animals = random.randint(MIN_ANIMALS, MAX_ANIMALS)

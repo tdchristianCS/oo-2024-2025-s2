@@ -13,6 +13,7 @@ import pygame
 # Create a GameState object to store global variables
 from game.Game import Game, GameState
 from game.GameObject import GameObject
+from game.Level import Level
 
 from animals.Cat import Cat
 from animals.Capybara import Capybara
@@ -44,11 +45,10 @@ game.spawn_animals()
 # Images
 img_bg = pygame.image.load('src/assets/bg.png')
 img_bg = pygame.transform.scale(img_bg, (game.width, game.height))
+level = Level('zoolandia', img_bg)
+game.set_level(level)
 
 # Functions
-
-def draw_bg(surface) -> None:
-    surface.blit(img_bg, (0, 0))
 
 game.state = gsRunning
 
@@ -64,7 +64,9 @@ while game.state == gsRunning:
             print(pygame.mouse.get_pos())
     
     # Draw
-    draw_bg(window)
+    game.level.draw(window)
+    game.level.draw_water(window)
+
     for o in game.objects:
         o.draw(window)
         o.draw_hitbox(window)
