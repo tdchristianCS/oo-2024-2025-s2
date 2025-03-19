@@ -32,12 +32,14 @@ gsRunning = GameState('running')
 gsQuit = GameState('quit')
 
 # Animals
-game.objects.extend([
-    GameObject(Cat('Dinky', 'M', 'brown'), (100, 100)),
-    GameObject(Cat('Army', 'F', 'black'), (200, 200)),
-    GameObject(Capybara('Pinky', 'M', 'pink'), (400, 400)),
-    GameObject(Horse('Stinky', 'F', 'white'), (300, 300)),
-])
+# Dummy code...
+# game.objects.extend([
+#     GameObject(Cat('Dinky', 'M', 'brown'), (100, 100)),
+#     GameObject(Cat('Army', 'F', 'black'), (200, 200)),
+#     GameObject(Capybara('Pinky', 'M', 'pink'), (400, 400)),
+#     GameObject(Horse('Stinky', 'F', 'white'), (300, 300)),
+# ])
+game.spawn_animals()
 
 # Images
 img_bg = pygame.image.load('src/assets/bg.png')

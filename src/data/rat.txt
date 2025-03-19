@@ -1,0 +1,19 @@
+; A line that starts with a semicolon ; is a comment
+; so you can document things
+; These lines will not be parsed :)
+; The separator is ::
+
+; For name, an optional 3rd segment may be provided specifying gender
+; If none is specified it will be available for both
+
+; Fur colours can have associated luck values (cats only for the time being)
+; If none is specified, it will be 50
+
+fur_colour::brown
+fur_colour::grey
+fur_colour::white
+fur_colour::hairless
+name::Stiny
+name::Da Huuuudge
+name::Schnargle
+name::Loverboy

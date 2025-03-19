@@ -9,7 +9,7 @@ class Cat(Mammal):
     fur_colour: str
     luck: bool
 
-    def __init__(self: Cat, name: str, gender: str, fur_colour: str) -> None:
+    def __init__(self: Cat, name: str, gender: str, fur_colour: str, luck: int) -> None:
         super().__init__(name, gender, fur_colour)
 
         self.friendliness = 50
@@ -17,12 +17,48 @@ class Cat(Mammal):
         self.size = 30
         self.diet = [Meat]
 
-        # We can do some logic with a DERIVED attribute!!
-        if self.fur_colour == 'BLACK':
-            self.luck = False
-        else:
-            self.luck = True
+    @staticmethod
+    def make_random() -> Cat:
+
+        fur_colours = []
+        names = []
+
+        with open('src/data/cat.txt', 'r') as f:
+            for line in f.readlines():
+                line = line.strip()
+
+                if line.startswith(';'):
+                    continue
+                if not line:
+                    continue
+
+                parts = line.split('::')
+
+                if parts[0] == 'fur_colour':
+                    fur_colour = parts[1]
+
+                    if len(parts) == 3:
+                        luck = parts[2]
+                    else:
+                        luck = 50
+
+                    fur_colours.append([fur_colour, luck])
+                
+                elif parts[0] == 'name':
+                    name = parts[1]
+
+                    if len(parts) == 3:
+                        gender = parts[2]
+                    else:
+                        gender = random.choice(['M', 'F'])
+
+                    names.append([name, gender])
         
+        fur_colour, luck = random.choice(fur_colours)
+        name, gender = random.choice(names)
+
+        return Cat(name, gender, fur_colour, luck)
+
     def move(self: Cat, duration: int) -> None:
        self.walk(duration)
 
