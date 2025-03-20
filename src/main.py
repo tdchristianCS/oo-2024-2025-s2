@@ -20,7 +20,7 @@ from animals.Capybara import Capybara
 from animals.Horse import Horse
 
 # Make game object
-game = Game(1680, 900)
+game = Game(1450, 800)
 # game = Game(1400, 800)
 
 # Set up the window
