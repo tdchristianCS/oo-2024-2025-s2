@@ -52,22 +52,22 @@ level = Level('zoolandia', img_bg)
 game.set_level(level)
 
 # Debugging...
-game.debug_mousedown_pos = None
-game.debug_mouseup_pos = None
-game.debug_pos_pairs = []
-game.debug_rect = None
-game.debug_rects = []
+# game.debug_mousedown_pos = None
+# game.debug_mouseup_pos = None
+# game.debug_pos_pairs = []
+# game.debug_rect = None
+# game.debug_rects = []
 
-def get_debug_rectangle() -> None:
-    left, top = game.debug_mousedown_pos
-    right, bottom = pygame.mouse.get_pos()
-    return pygame.Rect(left, top, right - left, bottom - top)
+# def get_debug_rectangle() -> None:
+#     left, top = game.debug_mousedown_pos
+#     right, bottom = pygame.mouse.get_pos()
+#     return pygame.Rect(left, top, right - left, bottom - top)
 
 # Main loop
 game.state = gsRunning
 while game.state == gsRunning:
 
-    debug_text = None
+    # debug_text = None
 
     # Check events
     for event in pygame.event.get():
@@ -76,45 +76,45 @@ while game.state == gsRunning:
         if event.type == pygame.QUIT:
             game.state = gsQuit
 
-        elif event.type == pygame.MOUSEMOTION:
-            pos = pygame.mouse.get_pos()
-            debug_text = font_debug.render(str(pos), False, (255, 255, 255))
+        # elif event.type == pygame.MOUSEMOTION:
+        #     pos = pygame.mouse.get_pos()
+        #     debug_text = font_debug.render(str(pos), False, (255, 255, 255))
 
-            if game.debug_mousedown_pos:
-                game.debug_rect = get_debug_rectangle()
+        #     if game.debug_mousedown_pos:
+        #         game.debug_rect = get_debug_rectangle()
 
-        # Debugging drawing rectangles
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            game.debug_mousedown_pos = pygame.mouse.get_pos()
+        # # Debugging drawing rectangles
+        # elif event.type == pygame.MOUSEBUTTONDOWN:
+        #     game.debug_mousedown_pos = pygame.mouse.get_pos()
         
-        elif event.type == pygame.MOUSEBUTTONUP:
-            game.debug_mouseup_pos = pygame.mouse.get_pos()
-            game.debug_rects.append(game.debug_rect)
-            game.debug_pos_pairs.append([game.debug_mousedown_pos, game.debug_mouseup_pos])
+        # elif event.type == pygame.MOUSEBUTTONUP:
+        #     game.debug_mouseup_pos = pygame.mouse.get_pos()
+        #     game.debug_rects.append(game.debug_rect)
+        #     game.debug_pos_pairs.append([game.debug_mousedown_pos, game.debug_mouseup_pos])
 
-            with open('src/debug/rects.txt', 'w') as f:
-                for pair in game.debug_pos_pairs:
-                    tl, br = pair
-                    f.write(f'water::{tl[0]},{tl[1]}::{br[0]},{br[1]}\n')
+        #     with open('src/debug/rects.txt', 'w') as f:
+        #         for pair in game.debug_pos_pairs:
+        #             tl, br = pair
+        #             f.write(f'water::{tl[0]},{tl[1]}::{br[0]},{br[1]}\n')
 
-            game.debug_mousedown_pos = None
-            game.debug_rect = None            
+        #     game.debug_mousedown_pos = None
+        #     game.debug_rect = None            
     
     # Draw
     game.level.draw(window)
-    game.level.draw_water(window) # Debugging
+    # game.level.draw_water(window) # Debugging
 
     for o in game.objects:
         o.draw(window)
         o.draw_hitbox(window) # Debugging
 
-    # Debug
-    if debug_text:
-        window.blit(debug_text, (game.width // 2, game.height - 40)) # Debugging
-    if game.debug_rect:
-        pygame.draw.rect(window, '#0055ff', game.debug_rect)
-    for rect in game.debug_rects:
-        pygame.draw.rect(window, '#0022ff', rect)
+    # # Debug
+    # if debug_text:
+    #     window.blit(debug_text, (game.width // 2, game.height - 40)) # Debugging
+    # if game.debug_rect:
+    #     pygame.draw.rect(window, '#0055ff', game.debug_rect)
+    # for rect in game.debug_rects:
+    #     pygame.draw.rect(window, '#0022ff', rect)
 
     # Update the display
     pygame.display.flip()
