@@ -3,7 +3,7 @@ import pygame.image
 # TODO automate animal naming
 
 keys = [
-    'capybara', 'horse', 'elephant', 'cat', 'shark', 'mutt', 'husky', 'chihuahua', 'wolf',
+    'capybara', 'horse', 'elephant', 'cat', 'shark', 'mutt', 'husky', 'chihuahua', 'wolf', 'barracuda'
     # fish
 ]
 
