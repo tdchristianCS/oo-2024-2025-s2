@@ -65,7 +65,19 @@ class Game:
 
         x = random.randint(min_x, max_x)
         y = random.randint(min_y, max_y)
+        rect = pygame.Rect(x - (w / 2), y - (w / 2), w, h)
+        while self.is_on_water(rect):
+            x = random.randint(min_x, max_x)
+            y = random.randint(min_y, max_y)
+            rect = pygame.Rect(x - (w / 2), y - (w / 2), w, h)       
+
         return Point(x, y)
+    
+    def is_on_water(self: Game, check_rect: pygame.Rect) -> bool:
+        for water_rect in self.level.water_rects:
+            if check_rect.colliderect(water_rect):
+                return True
+        return False
 
 class GameState:
     """

@@ -35,6 +35,12 @@ font_debug = pygame.font.SysFont('Courier New', 24)
 gsRunning = GameState('running')
 gsQuit = GameState('quit')
 
+# Level
+img_bg = pygame.image.load('src/assets/bg.png')
+img_bg = pygame.transform.scale(img_bg, (game.width, game.height))
+level = Level('zoolandia', img_bg)
+game.set_level(level)
+
 # Animals
 # Dummy code...
 # game.objects.extend([
@@ -44,12 +50,6 @@ gsQuit = GameState('quit')
 #     GameObject(Horse('Stinky', 'F', 'white'), (300, 300)),
 # ])
 game.spawn_animals()
-
-# Images
-img_bg = pygame.image.load('src/assets/bg.png')
-img_bg = pygame.transform.scale(img_bg, (game.width, game.height))
-level = Level('zoolandia', img_bg)
-game.set_level(level)
 
 # Debugging...
 # game.debug_mousedown_pos = None
