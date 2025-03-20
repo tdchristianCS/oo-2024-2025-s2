@@ -16,7 +16,11 @@ class GameObject:
 
         self.image = pygame.transform.scale_by(self.image, 0.5 + (self.entity.size / 100))
 
-        self.rect = None
+        w = self.image.get_width()
+        h = self.image.get_height()
+        x = point.x
+        y = point.y
+        self.rect = pygame.Rect(x - w, y - h, w, h)
 
     def draw(self: GameObject, surface: object) -> None:
         x, y = self.point.x, self.point.y

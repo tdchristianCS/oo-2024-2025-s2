@@ -17,8 +17,8 @@ from animals.Otter import Otter
 from animals.Rat import Rat
 from animals.Shark import Shark
 
-MIN_ANIMALS = 2
-MAX_ANIMALS = 20
+MIN_ANIMALS = 5
+MAX_ANIMALS = 25
 # ANIMALS = [Capybara, Cat, Dog, Elephant, Horse, Otter, Rat, Shark]
 ANIMALS = [Cat]
 
@@ -42,12 +42,14 @@ class Game:
         n_animals = random.randint(MIN_ANIMALS, MAX_ANIMALS)
         for _ in range(n_animals):
             animal = self.spawn_animal()
-            self.objects.append(animal)
+            if animal:
+                self.objects.append(animal)
 
     def spawn_animal(self: Game) -> GameObject:
         animal = self.choose_animal()
         point = self.choose_point(animal)
-        return GameObject(animal, point)
+        if point:
+            return GameObject(animal, point)
     
     def choose_animal(self: Game) -> Animal:
         animal_class = random.choice(ANIMALS)
@@ -61,7 +63,7 @@ class Game:
         max_x = self.width - min_x
         max_y = self.height - min_y
 
-        # TODO impassable terrain...
+        # Water: keep trying until valid point is found
 
         x = random.randint(min_x, max_x)
         y = random.randint(min_y, max_y)
@@ -69,13 +71,21 @@ class Game:
         while self.is_on_water(rect):
             x = random.randint(min_x, max_x)
             y = random.randint(min_y, max_y)
-            rect = pygame.Rect(x - (w / 2), y - (w / 2), w, h)       
+            rect = pygame.Rect(x - (w / 2), y - (w / 2), w, h)
 
-        return Point(x, y)
+        # Other animal: give up if on top of
+        if not self.is_on_object(rect):
+            return Point(x, y)
     
     def is_on_water(self: Game, check_rect: pygame.Rect) -> bool:
         for water_rect in self.level.water_rects:
             if check_rect.colliderect(water_rect):
+                return True
+        return False
+    
+    def is_on_object(self: Game, check_rect: pygame.Rect) -> bool:
+        for object in self.objects:
+            if check_rect.colliderect(object.rect):
                 return True
         return False
 
