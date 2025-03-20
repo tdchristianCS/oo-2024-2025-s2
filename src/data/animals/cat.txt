@@ -13,3 +13,9 @@ fur_colour::brown
 fur_colour::grey::60
 name::Oliphant
 name::Patches::M
+name::Teddy::M
+name::Barbara::F
+name::Hilary::F
+name::Barack::M
+name::Sandy::F
+name::Taylor

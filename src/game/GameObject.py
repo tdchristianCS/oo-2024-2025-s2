@@ -30,4 +30,9 @@ class GameObject:
 
     def draw_hitbox(self: GameObject, surface: object) -> None:
         pygame.draw.rect(surface, '#ff00ff', self.rect, 2)
-    
+
+    def draw_info(self: GameObject, surface: object, font: object) -> None:
+        text = font.render(self.entity.info['name'], False, (255, 255, 255))
+        w = self.image.get_width()
+        h = self.image.get_height()
+        surface.blit(text, (self.point.x - (w / 2), (self.point.y + (h / 2))))

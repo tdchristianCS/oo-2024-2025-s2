@@ -11,53 +11,16 @@ class Cat(Mammal):
 
     def __init__(self: Cat, name: str, gender: str, fur_colour: str, luck: int) -> None:
         super().__init__(name, gender, fur_colour)
+        self.luck = luck
 
         self.friendliness = 50
         self.speed = 40
         self.size = 30
         self.diet = [Meat]
 
-    @staticmethod
-    def make_random() -> Cat:
-
-        fur_colours = []
-        names = []
-
-        with open('src/data/animals/cat.txt', 'r') as f:
-            for line in f.readlines():
-                line = line.strip()
-
-                if line.startswith(';'):
-                    continue
-                if not line:
-                    continue
-
-                parts = line.split('::')
-
-                if parts[0] == 'fur_colour':
-                    fur_colour = parts[1]
-
-                    if len(parts) == 3:
-                        luck = parts[2]
-                    else:
-                        luck = 50
-
-                    fur_colours.append([fur_colour, luck])
-                
-                elif parts[0] == 'name':
-                    name = parts[1]
-
-                    if len(parts) == 3:
-                        gender = parts[2]
-                    else:
-                        gender = random.choice(['M', 'F'])
-
-                    names.append([name, gender])
-        
-        fur_colour, luck = random.choice(fur_colours)
-        name, gender = random.choice(names)
-
-        return Cat(name, gender, fur_colour, luck)
+        self.set_shared_info()
+        self.info['fur_colour'] = self.fur_colour
+        self.info['luck'] = self.luck
 
     def move(self: Cat, duration: int) -> None:
        self.walk(duration)

@@ -53,7 +53,7 @@ class Game:
     
     def choose_animal(self: Game) -> Animal:
         animal_class = random.choice(ANIMALS)
-        return animal_class.make_random()
+        return animal_class.make_random(animal_class)
     
     def choose_point(self: Game, entity: Entity) -> Point:
         w = entity.image.get_width()
