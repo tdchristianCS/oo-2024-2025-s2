@@ -20,8 +20,7 @@ from animals.Capybara import Capybara
 from animals.Horse import Horse
 
 # Make game object
-game = Game(1600, 900)
-# game = Game(1400, 800)
+game = Game(1440, 800)
 
 # Set up the window
 pygame.init()
@@ -68,6 +67,8 @@ def get_debug_rectangle() -> None:
 game.state = gsRunning
 while game.state == gsRunning:
 
+    debug_text = None
+
     # Check events
     for event in pygame.event.get():
 
@@ -108,7 +109,8 @@ while game.state == gsRunning:
         o.draw_hitbox(window) # Debugging
 
     # Debug
-    window.blit(debug_text, (game.width // 2, game.height - 40)) # Debugging
+    if debug_text:
+        window.blit(debug_text, (game.width // 2, game.height - 40)) # Debugging
     if game.debug_rect:
         pygame.draw.rect(window, '#0055ff', game.debug_rect)
     for rect in game.debug_rects:
