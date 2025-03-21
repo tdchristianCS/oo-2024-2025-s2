@@ -13,6 +13,7 @@ class Rat(Rodent):
         self.speed = 5
         self.size = 5
         self.diet = [Apple]
+        self.has_tail = True
 
     def move(self: Rat, duration: int) -> None:
         self.walk(duration)

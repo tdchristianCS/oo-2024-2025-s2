@@ -8,15 +8,17 @@ from foods.Food import Meat
 class Dog(Mammal):
     loudness_bark: int
 
-    def __init__(self: Dog, name: str, gender: str, fur_colour: str) -> None:
-        super().__init__(name, gender, fur_colour)
-        self.lung_capacity = 0
-        self.lung_capacity = random.randint(0,50)
+    def __init__(self: Dog, args: dict[str, object]) -> None:
+        super().__init__(args)
+        self.lung_capacity = random.randint(0, 50)
 
         self.friendliness = 80
         self.speed = 50
         self.size = 50
         self.diet = [Meat]
+
+        self.set_shared_info()
+        self.info['fur_colour'] = self.fur_colour
 
     def move(self: Dog, duration: int) -> None:
         self.walk(duration)
