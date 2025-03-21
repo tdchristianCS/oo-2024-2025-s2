@@ -1,5 +1,6 @@
-from __future__ import annotations 
+from animals.Animal import Animal
 from animals.Equine import Equine
+from __future__ import annotations
 import random
 
 from foods.Food import Apple
@@ -20,5 +21,9 @@ class Horse(Equine):
         self.size = 110
         self.diet = [Apple]
 
-
-
+    def move(self: Horse, duration: int) -> None:
+       self.walk(duration) 
+    def walk(self: Horse, duration: int) -> None:
+    
+    def energy(self: Horse) -> None: 
+        pass 
