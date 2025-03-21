@@ -12,8 +12,8 @@ class Horse(Equine):
     # sides: 0 being Dory Level --> 100 being MEGA MIND MEMORY 
     # (cause horses are big brain??)
 
-    def __init__(self: Horse, name: str, gender: str, fur_colour: str) -> None:
-        super().__init__(name, gender, fur_colour)
+    def __init__(self: Horse, args: dict[str, object]) -> None:
+        super().__init__(args)
 
         self.friendliness = 80
         self.speed = 70
