@@ -7,8 +7,8 @@ from foods.Food import Apple
 class Otter(Mammal):
     wetness_fatigue: int
     
-    def __init__(self: Otter, name: str, gender: str) -> None:
-        super().__init__(name, gender, 'brown')
+    def __init__(self: Otter, args: dict[str, object]) -> None:
+        super().__init__(args)
         self.wetness_fatigue = 0
 
         self.friendliness = 30
