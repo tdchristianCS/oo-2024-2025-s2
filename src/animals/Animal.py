@@ -19,11 +19,16 @@ class Animal(Entity):
     can_ride: bool
     image: object
 
-    def __init__(self: Animal, name: str, gender: str) -> None:
+    def __init__(self: Animal, args: dict[str, object]) -> None:
+        """
+        Expected args:
+          name: str
+          gender: str
+        """
         super().__init__()
+
         # First we create the attributes that came from arguments
-        self.name = name
-        self.gender = gender
+        self.name, self.gender = args['name']
 
         # Then we set the attributes that have default values
         self.age = 0
@@ -49,8 +54,7 @@ class Animal(Entity):
     @staticmethod
     def make_random(_class) -> Animal:
 
-        fur_colours = []
-        names = []
+        arg_choices = {}
 
         key = _class.__name__.lower()
 
@@ -73,7 +77,9 @@ class Animal(Entity):
                     else:
                         luck = 50
 
-                    fur_colours.append([fur_colour, luck])
+                    if not arg_choices.get('fur_colour'):
+                        arg_choices['fur_colour'] = []
+                    arg_choices['fur_colour'].append([fur_colour, luck])
                 
                 elif parts[0] == 'name':
                     name = parts[1]
@@ -83,9 +89,13 @@ class Animal(Entity):
                     else:
                         gender = random.choice(['M', 'F'])
 
-                    names.append([name, gender])
-        
-        fur_colour, luck = random.choice(fur_colours)
-        name, gender = random.choice(names)
+                    if not arg_choices.get('name'):
+                        arg_choices['name'] = []
+                    arg_choices['name'].append([name, gender])
 
-        return _class(name, gender, fur_colour, luck)
+        # Choose randomly from the choices        
+        args = {}
+        for key in arg_choices:
+            args[key] = random.choice(arg_choices[key])
+
+        return _class(args)

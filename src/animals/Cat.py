@@ -9,9 +9,9 @@ class Cat(Mammal):
     fur_colour: str
     luck: bool
 
-    def __init__(self: Cat, name: str, gender: str, fur_colour: str, luck: int) -> None:
-        super().__init__(name, gender, fur_colour)
-        self.luck = luck
+    def __init__(self: Cat, args: dict[str, object]) -> None:
+        super().__init__(args)
+        self.fur_colour, self.luck = args['fur_colour']
 
         self.friendliness = 50
         self.speed = 40
