@@ -72,14 +72,9 @@ class Animal(Entity):
                 if parts[0] == 'fur_colour':
                     fur_colour = parts[1]
 
-                    if len(parts) == 3:
-                        luck = parts[2]
-                    else:
-                        luck = 50
-
                     if not arg_choices.get('fur_colour'):
                         arg_choices['fur_colour'] = []
-                    arg_choices['fur_colour'].append([fur_colour, luck])
+                    arg_choices['fur_colour'].append(fur_colour)
                 
                 elif parts[0] == 'name':
                     name = parts[1]
