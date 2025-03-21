@@ -38,6 +38,6 @@ class Equine(Mammal):
     #     self.stable_worthy = stable_worthy 
     #     self.herd_animal = herd_animal
 
-    def __init__(self: Equine, name: str, gender: str, fur_colour: str) -> None:
-        super().__init__(name, gender, fur_colour)
+    def __init__(self: Equine, args: dict[str, object]) -> None:
+        super().__init__(args)
         self.can_ride = True
