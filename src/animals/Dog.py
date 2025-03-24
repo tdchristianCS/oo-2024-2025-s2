@@ -11,7 +11,9 @@ class Dog(Mammal):
     lung_capacity: int
 
     def __init__(self: Dog, args: dict[str, object]) -> None:
+        args['terrains'] = [TERRAIN_LAND]
         super().__init__(args)
+        
         self.lung_capacity = 0
         self.lung_capacity = random.randint(0,50)
         self.lung_capacity = random.randint(0, 50)
@@ -20,7 +22,6 @@ class Dog(Mammal):
         self.speed = 50
         self.size = 50
         self.diet = [Meat]
-        args['terrains'] = [TERRAIN_LAND]
 
         self.set_shared_info()
         self.info['fur_colour'] = self.fur_colour
