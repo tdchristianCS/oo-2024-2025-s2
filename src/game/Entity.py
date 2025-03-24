@@ -4,8 +4,10 @@ from game.assets import assets
 class Entity:
     image: object
     info: dict[str, object]
+    terrains: list[str]
     
-    def __init__(self: Entity) -> None:
+    def __init__(self: Entity, args: dict[str, object]) -> None:
+        self.terrains = args['terrains']
         self.set_image()
         self.info = {}
 

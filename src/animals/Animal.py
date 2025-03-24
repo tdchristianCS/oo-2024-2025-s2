@@ -4,12 +4,13 @@ import random
 from game.Entity import Entity
 from foods.Food import Food
 
+
 class Animal(Entity):
     age: int        # This is in seconds
     name: str
     gender: str
     n_legs: int
-    # IQ: int         
+    # IQ: int
     friendliness: int
     speed: int
     # stubborness: int 
@@ -25,7 +26,7 @@ class Animal(Entity):
           name: str
           gender: str
         """
-        super().__init__()
+        super().__init__(args)
 
         # First we create the attributes that came from arguments
         self.name, self.gender = args['name']
