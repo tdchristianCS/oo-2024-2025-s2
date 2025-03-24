@@ -3,12 +3,15 @@ import random
 
 from animals.Rodent import Rodent
 from foods.Food import Apple
+from game.constants import TERRAIN_WATER, TERRAIN_LAND
 
 class Capybara(Rodent):
    
     swim_energy_meter: int
 
     def __init__(self: Capybara, args: dict[str, object]) -> None:
+        args['terrains'] = [TERRAIN_WATER, TERRAIN_LAND]
+        
         super().__init__(args)
         self.swim_energy_meter = 100
 
