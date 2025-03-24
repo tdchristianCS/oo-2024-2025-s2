@@ -4,6 +4,7 @@ import random
 # from the Mammal module import the Mammal class
 from animals.Mammal import Mammal
 from foods.Food import Meat
+from game.constants import TERRAIN_LAND
 
 class Dog(Mammal):
     loudness_bark: int
@@ -16,6 +17,7 @@ class Dog(Mammal):
         self.speed = 50
         self.size = 50
         self.diet = [Meat]
+        args['terrains'] = [TERRAIN_LAND]
 
         self.set_shared_info()
         self.info['fur_colour'] = self.fur_colour
