@@ -1,7 +1,9 @@
+from __future__ import annotations
+
 from animals.Animal import Animal
 from animals.Equine import Equine
-from __future__ import annotations
 import random
+from game.constants import TERRAIN_LAND
 
 from foods.Food import Apple
 
@@ -14,12 +16,15 @@ class Horse(Equine):
     # (cause horses are big brain??)
 
     def __init__(self: Horse, args: dict[str, object]) -> None:
+        args['terrains'] = [TERRAIN_LAND]
         super().__init__(args)
 
         self.friendliness = 80
         self.speed = 70
         self.size = 110
         self.diet = [Apple]
+        
+        self.set_shared_info()
 
     def trample(self: Horse, victim: Animal):
         # Thinking about changing this to be impacted by energy. 
@@ -47,8 +52,10 @@ class Horse(Equine):
         print(f'Attack on {victim} was {squash}, they have {status}') 
 
 
-
     def move(self: Horse, duration: int) -> None:
       self.walk(duration) 
     def walk(self: Horse, duration: int) -> None:
-        pass
+        pass 
+       
+
+

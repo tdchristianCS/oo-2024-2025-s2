@@ -3,14 +3,22 @@ from __future__ import annotations
 from animals.Movable import Movable
 import random
 from animals.Animal import Animal
+from foods.Food import Apple
 
 class Elephant(Movable):
     trunk_length: int
 
     def __init__(self: Elephant, args: dict[str, object]):
+        args['fur_colour'] = 'grey'
         super().__init__(args)
-        self.trunk_length = args['trunk_length']
+        self.trunk_length = random.randint(10, 20)
+
         self.size = random.randint(80, 90)
+        self.speed = 25
+        self.friendliness = 90
+        self.diet = [Apple]
+
+        self.set_shared_info()
 
     def trunk_slap(self: Elephant, target: Animal):
         power = random.randint(1, 20)

@@ -2,16 +2,26 @@ from __future__ import annotations
 import random
 
 from animals.Fish import Fish 
+from foods.Food import Meat
 
 class Barracuda(Fish):
     n_fish_eaten: int 
     size_of_shark: int 
     n_teeth: int
 
-    def __init__(self: Barracuda, name: str, gender: str) -> None:
-        super().__init__(name, gender, 'grey')
-        self.n_fish_eaten = 0
+    def __init__(self: Barracuda, args: dict[str, object]) -> None:
+        super().__init__(args)
+
         self.size = 2
+        self.speed = 50
+        self.friendliness = 5
+        self.diet = [Meat]
+
+        self.n_fish_eaten = 0
+        n_teeth_options = [140, 150, 160, 170, 180, 190, 200, 210, 220]
+        self.n_teeth = random.choice(n_teeth_options)
+
+        self.set_shared_info()
     
     def swim(self: Barracuda, duration: int) -> None: 
         if self.size > 10: 

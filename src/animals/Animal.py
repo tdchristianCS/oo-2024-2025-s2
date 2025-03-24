@@ -4,12 +4,13 @@ import random
 from game.Entity import Entity
 from foods.Food import Food
 
+
 class Animal(Entity):
     age: int        # This is in seconds
     name: str
     gender: str
     n_legs: int
-    # IQ: int         
+    # IQ: int
     friendliness: int
     speed: int
     # stubborness: int 
@@ -25,7 +26,7 @@ class Animal(Entity):
           name: str
           gender: str
         """
-        super().__init__()
+        super().__init__(args)
 
         # First we create the attributes that came from arguments
         self.name, self.gender = args['name']
@@ -52,9 +53,9 @@ class Animal(Entity):
         }
 
     @staticmethod
-    def make_random(_class) -> Animal:
+    def make_random_animal(_class: type) -> Animal:
 
-        arg_choices = {}
+        arg_choices = {'name': []}
 
         key = _class.__name__.lower()
 
@@ -69,14 +70,7 @@ class Animal(Entity):
 
                 parts = line.split('::')
 
-                if parts[0] == 'fur_colour':
-                    fur_colour = parts[1]
-
-                    if not arg_choices.get('fur_colour'):
-                        arg_choices['fur_colour'] = []
-                    arg_choices['fur_colour'].append(fur_colour)
-                
-                elif parts[0] == 'name':
+                if parts[0] == 'name':
                     name = parts[1]
 
                     if len(parts) == 3:
@@ -84,10 +78,23 @@ class Animal(Entity):
                     else:
                         gender = random.choice(['M', 'F'])
 
-                    if not arg_choices.get('name'):
+                    if name not in arg_choices:
                         arg_choices['name'] = []
                     arg_choices['name'].append([name, gender])
+                
+                else:                    
 
+                    key = parts[0]
+                    if len(parts) > 2:
+                        value = parts[1:]
+                    else:
+                        value = parts[1]
+                    
+                    if key not in arg_choices:
+                        arg_choices[key] = []
+                    
+                    arg_choices[key].append(value)
+                
         # Choose randomly from the choices        
         args = {}
         for key in arg_choices:

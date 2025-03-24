@@ -39,17 +39,19 @@ class Dog(Mammal):
     
 
 class Husky(Dog):
-    def __init__(self: Husky, name:str, gender:str) -> None:
-        super().__init__(name, gender, 'grey')
+    def __init__(self: Husky, args: dict[str, object]) -> None:
+        args['fur_colour'] = 'grey'
+        super().__init__(args)
         self.lung_capacity = 50
 
 
-class Chihauhua(Dog):
-    def __init__(self: Chihauhua, name:str, gender:str) -> None:
-        super().__init__(name, gender, 'beige')
+class Chihuahua(Dog):
+    def __init__(self: Chihuahua,  args: dict[str, object]) -> None:
+        args['fur_colour'] = 'beige'
+        super().__init__(args)
         self.lung_capacity -= 30 
 
 class Mutt(Dog):
-    def __init__(self: Mutt, name:str, gender:str, fur_colour: str) -> None:
-        super().__init__(name, gender, fur_colour)
+    def __init__(self: Mutt,  args: dict[str, object]) -> None:
+        super().__init__(args)
 
