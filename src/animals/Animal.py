@@ -54,6 +54,7 @@ class Animal(Entity):
 
     @staticmethod
     def make_random_animal(_class: type) -> Animal:
+        # TODO All animals of the same species have the same name :(((
 
         arg_choices = {'name': []}
 
