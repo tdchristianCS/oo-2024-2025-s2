@@ -3,7 +3,6 @@ from __future__ import annotations
 from animals.Animal import Animal
 from animals.Equine import Equine
 import random
-from game.constants import TERRAIN_LAND
 
 from foods.Food import Apple
 
