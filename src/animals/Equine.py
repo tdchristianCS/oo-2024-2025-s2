@@ -1,5 +1,7 @@
 from __future__ import annotations 
 from animals.Mammal import Mammal 
+from game.constants import TERRAIN_LAND
+
 
 class Equine(Mammal): 
 # Equines are animals that are a part of the horse family
@@ -39,5 +41,6 @@ class Equine(Mammal):
     #     self.herd_animal = herd_animal
 
     def __init__(self: Equine, args: dict[str, object]) -> None:
+        args['terrains'] = [TERRAIN_LAND]
         super().__init__(args)
         self.can_ride = True

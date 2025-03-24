@@ -1,6 +1,6 @@
 fur_colour::black
 fur_colour::brown
-fur_colour::gray
+fur_colour::grey
 name::Blaze::M
 name::Bella::F
 name::Cheyenne::F

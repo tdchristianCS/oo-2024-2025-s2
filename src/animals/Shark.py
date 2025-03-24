@@ -2,32 +2,37 @@ from __future__ import annotations
 import random
 
 from animals.Fish import Fish 
+from foods.Food import Meat
 
 class Shark(Fish):
-    number_of_fish_eaten: int 
-    size_of_shark: int 
+    n_fish_eaten: int 
+    size: int 
 
-    def __init__(self: Shark, name: str, gender: str) -> None:
-        super().__init__(name, gender, 'grey')
-        self.number_of_fish_eaten = 0
-        self.size_of_shark = 5
+    def __init__(self: Shark, args: dict[str, object]) -> None:
+        super().__init__(args)
+
+        self.size = 5
+        self.speed = 60
+        self.friendliness = 10
+        self.diet = [Meat]
+
+        self.n_fish_eaten = 0        
+        
+        self.set_shared_info()
     
     def swim(self: Shark, duration: int) -> None: 
-        if self.size_of_shark > 10: 
-            self.number_of_fish_eaten == 20 
+        if self.size > 10: 
+            self.n_fish_eaten == 20 
 
-        elif self.size_of_shark < 10: 
-            self.number_of_fish_eaten = 10
-            print(f'{self.name} has ate {self.number_of_fish_eaten}. They must now swim to burn the calories!!! ')
+        elif self.size < 10: 
+            self.n_fish_eaten = 10
+            print(f'{self.name} has ate {self.n_fish_eaten}. They must now swim to burn the calories!!! ')
 
         else: 
             appetite = random.randint(1, 10)
             
-            self.number_of_fish_eaten += duration * appetite
-            if self.number_of_fish_eaten > 20:
-                self.number_of_fish_eaten < 10 
+            self.n_fish_eaten += duration * appetite
+            if self.n_fish_eaten > 20:
+                self.n_fish_eaten < 10 
 
-                print(f'{self.name} swam for {duration} seconds. The current fish eaten: {self.number_of_fish_eaten}int' )
-
-
-
+                print(f'{self.name} swam for {duration} seconds. The current fish eaten: {self.n_fish_eaten}int' )

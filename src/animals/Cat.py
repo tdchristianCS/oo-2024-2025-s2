@@ -11,12 +11,16 @@ class Cat(Mammal):
 
     def __init__(self: Cat, args: dict[str, object]) -> None:
         super().__init__(args)
-        self.fur_colour, self.luck = args['fur_colour']
 
         self.friendliness = 50
         self.speed = 40
         self.size = 30
         self.diet = [Meat]
+
+        if self.fur_colour == 'black':
+            self.luck = 10
+        else:
+            self.luck = 50
 
         self.set_shared_info()
         self.info['fur_colour'] = self.fur_colour

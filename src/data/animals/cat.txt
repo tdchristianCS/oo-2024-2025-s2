@@ -10,7 +10,7 @@
 ; If none is specified, it will be 50
 
 fur_colour::brown
-fur_colour::grey::60
+fur_colour::grey
 name::Oliphant
 name::Patches::M
 name::Teddy::M

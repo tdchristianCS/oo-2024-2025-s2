@@ -12,6 +12,6 @@ class Mammal(Movable):
         # It means use the parent (Animal)'s init method
         # In other words, the Animal handles the name and gender
         super().__init__(args)
-        self.fur_colour, _ = args['fur_colour']
+        self.fur_colour = args['fur_colour']
         
         self.n_legs = 4

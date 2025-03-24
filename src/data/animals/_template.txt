@@ -7,10 +7,6 @@
 ; If none is specified it will be available for both
 
 fur_colour::light brown
-fur_colour::brown
-fur_colour::red
-fur_colour::black
 name::Gerald::M
-name::John::M
-name::Bunbrain::F
-name::Janess::F
+name::Geraldina::F
+name::Boycott

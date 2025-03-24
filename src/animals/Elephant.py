@@ -1,16 +1,26 @@
+from __future__ import annotations
+
 from animals.Movable import Movable
 import random
 from animals.Animal import Animal
+from foods.Food import Apple
 
 class Elephant(Movable):
     trunk_length: int
 
-    def __init__(self, name, gender, size, trunk_length):
-        super().__init__(name, gender)
-        self.trunk_length = trunk_length
-        self.size = size
+    def __init__(self: Elephant, args: dict[str, object]):
+        args['fur_colour'] = 'grey'
+        super().__init__(args)
+        self.trunk_length = random.randint(10, 20)
 
-    def trunk_slap(self, target:Animal):
+        self.size = random.randint(80, 90)
+        self.speed = 25
+        self.friendliness = 90
+        self.diet = [Apple]
+
+        self.set_shared_info()
+
+    def trunk_slap(self: Elephant, target: Animal):
         power = random.randint(1, 20)
         if power < 5:
             strike = 'not effective'
@@ -26,8 +36,7 @@ class Elephant(Movable):
             status = 'has been disintegrated by the atmosphere'
         print(f'The attack was {strike}. {target} {status}')
 
-    def chase(self, target:Animal):
+    def chase(self: Elephant, target: Animal):
         while target.health_points >= 0:
             self.trunk_slap(target)
             self.move(10)
-
