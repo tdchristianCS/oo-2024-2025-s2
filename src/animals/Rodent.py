@@ -11,7 +11,7 @@ class Rodent(Mammal):
     
     def __init__(self: Rodent, args: dict[str, object]) -> None:
         args['terrains'] = [TERRAIN_LAND]
-
+        
         super().__init__(args)
         
         self.diseases = []
