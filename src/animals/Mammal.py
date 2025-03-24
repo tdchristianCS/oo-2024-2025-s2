@@ -6,12 +6,12 @@ class Mammal(Movable):
     n_legs: int
     fur_colour: str
 
-    def __init__(self: Mammal, name: str, gender: str, fur_colour: str) -> None:
+    def __init__(self: Mammal, args: dict[str, object]) -> None:
 
         # This is one of those lines to just learn :(
         # It means use the parent (Animal)'s init method
         # In other words, the Animal handles the name and gender
-        super().__init__(name, gender)
-        self.fur_colour = fur_colour
+        super().__init__(args)
+        self.fur_colour = args['fur_colour']
         
         self.n_legs = 4

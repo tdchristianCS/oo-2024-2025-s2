@@ -7,18 +7,23 @@ from animals.Fish import Fish
 class Barracuda(Fish):
     number_of_fish_eaten: int 
     size_of_shark: int 
+    List_of_teeth = [140, 150, 160, 170, 180, 190, 200, 210, 220]
+    n_teeth = random.choice(List_of_teeth)
+    luck: bool 
+
 
     def __init__(self: Barracuda, name: str, gender: str) -> None:
         super().__init__(name, gender, 'grey')
         self.number_of_fish_eaten = 0
         self.size_of_Barracuda= 2
+
     
     def swim(self: Barracuda, duration: int) -> None: 
-        if self.size_of_Barracuda > 10: 
-            self.number_of_fish_eaten == 20 
+        if self.size_of_Barracuda > 2: 
+            self.number_of_fish_eaten == 10 
 
-        elif self.size_of_Barracuda < 10: 
-            self.number_of_fish_eaten = 10
+        elif self.size_of_Barracuda < 2: 
+            self.number_of_fish_eaten == 5
             print(f'{self.name} has ate {self.number_of_fish_eaten}. They must now swim to burn the calories!!! ')
 
         else: 
@@ -30,5 +35,22 @@ class Barracuda(Fish):
 
                 print(f'{self.name} swam for {duration} seconds. The current fish eaten: {self.number_of_fish_eaten}int' )
 
-    List_of_teeth = [140, 150, 160, 170, 180, 190, 200, 210, 220]
-    n_teeth = random.choice(List_of_teeth)
+        if self.number_of_fish_eaten == 10:
+            self.luck = False 
+        else: 
+            self.luck = True
+
+            if self.luck == False: 
+                self.n_teeth - 10 
+                print(f'{self.name} has ate {self.number_of_fish_eaten} and has lost ten teeth -> {self.n_teeth}.')
+
+                #else:
+                    # self.nteeth - 0 <- woulnt this work too? 
+
+            elif self.luck == True:
+                self.n_teeth - 0 
+                    
+                print(f'{self.name} has ate {self.number_of_fish_eaten} with this amount of teeth -> {self.n_teeth}.')
+
+b = Barracuda('lol', 'F')
+b.swim(5)

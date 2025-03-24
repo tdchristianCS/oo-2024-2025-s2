@@ -30,6 +30,7 @@ window = pygame.display.set_mode([game.width, game.height])
 # Font
 pygame.font.init()
 font_debug = pygame.font.SysFont('Courier New', 24)
+font_info = pygame.font.SysFont('Comic Sans', 16)
 
 # Initialize game variables
 gsRunning = GameState('running')
@@ -106,7 +107,8 @@ while game.state == gsRunning:
 
     for o in game.objects:
         o.draw(window)
-        o.draw_hitbox(window) # Debugging
+        # o.draw_hitbox(window) # Debugging
+        o.draw_info(window, font_info)
 
     # # Debug
     # if debug_text:

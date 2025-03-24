@@ -7,14 +7,17 @@ from foods.Food import Apple
 class Otter(Mammal):
     wetness_fatigue: int
     
-    def __init__(self: Otter, name: str, gender: str) -> None:
-        super().__init__(name, gender, 'brown')
+    def __init__(self: Otter, args: dict[str, object]) -> None:
+        args['fur_colour'] = 'brown'
+        super().__init__(args)
         self.wetness_fatigue = 0
 
         self.friendliness = 30
         self.speed = 20
         self.size = 20
         self.diet = [Apple]
+        
+        self.set_shared_info()
 
 
     def move(self: Otter, duration: int) -> None:
