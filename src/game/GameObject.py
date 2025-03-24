@@ -32,7 +32,8 @@ class GameObject:
         pygame.draw.rect(surface, '#ff00ff', self.rect, 2)
 
     def draw_info(self: GameObject, surface: object, font: object) -> None:
-        s = f"{self.entity.info['name']} ({self.entity.info['fur_colour']}, {self.entity.info['gender']})"
+        # s = f"{self.entity.info['name']} ({self.entity.info['fur_colour']}, {self.entity.info['gender']})"
+        s = f"{self.entity.info['name']} ({self.entity.info['gender']})"
         text = font.render(s, False, (255, 255, 255))
         w = self.image.get_width()
         h = self.image.get_height()

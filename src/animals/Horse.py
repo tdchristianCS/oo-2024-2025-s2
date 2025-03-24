@@ -1,6 +1,7 @@
+from __future__ import annotations
+
 from animals.Animal import Animal
 from animals.Equine import Equine
-from __future__ import annotations
 import random
 
 from foods.Food import Apple
@@ -20,6 +21,8 @@ class Horse(Equine):
         self.speed = 70
         self.size = 110
         self.diet = [Apple]
+        
+        self.set_shared_info()
 
     def trample(self: Horse, victim: Animal):
         # Thinking about changing this to be impacted by energy. 
@@ -50,6 +53,4 @@ class Horse(Equine):
     def move(self: Horse, duration: int) -> None:
       self.walk(duration) 
     def walk(self: Horse, duration: int) -> None:
-       
-
-
+       pass

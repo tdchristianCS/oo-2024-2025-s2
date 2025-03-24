@@ -10,7 +10,7 @@ from game.Level import Level
 from animals.Animal import Animal
 from animals.Capybara import Capybara
 from animals.Cat import Cat
-from animals.Dog import Dog
+from animals.Dog import Husky, Chihuahua, Mutt
 from animals.Elephant import Elephant
 from animals.Horse import Horse
 from animals.Otter import Otter
@@ -19,8 +19,8 @@ from animals.Shark import Shark
 
 MIN_ANIMALS = 5
 MAX_ANIMALS = 25
-# ANIMALS = [Capybara, Cat, Dog, Elephant, Horse, Otter, Rat, Shark]
-ANIMALS = [Cat]
+ANIMALS = [Capybara, Cat, Husky, Chihuahua, Mutt, Elephant, Horse, Otter, Rat, Shark]
+# ANIMALS = [Cat]
 
 class Game:
     objects: GameObject
@@ -53,7 +53,7 @@ class Game:
     
     def choose_animal(self: Game) -> Animal:
         animal_class = random.choice(ANIMALS)
-        return animal_class.make_random(animal_class)
+        return Animal.make_random_animal(animal_class)
     
     def choose_point(self: Game, entity: Entity) -> Point:
         w = entity.image.get_width()
