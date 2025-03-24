@@ -16,12 +16,13 @@ from animals.Horse import Horse
 from animals.Otter import Otter
 from animals.Rat import Rat
 from animals.Shark import Shark
+from animals.Barracuda import Barracuda
 
 from game.constants import TERRAIN_LAND, TERRAIN_WATER
 
 MIN_ANIMALS = 500
 MAX_ANIMALS = 2500
-ANIMALS = [Capybara, Cat, Husky, Chihuahua, Mutt, Elephant, Horse, Otter, Rat, Shark]
+ANIMALS = [Capybara, Cat, Husky, Chihuahua, Mutt, Elephant, Horse, Otter, Rat, Shark, Barracuda]
 # ANIMALS = [Cat]
 
 class Game:
