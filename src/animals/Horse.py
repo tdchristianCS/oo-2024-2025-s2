@@ -16,7 +16,6 @@ class Horse(Equine):
     # (cause horses are big brain??)
 
     def __init__(self: Horse, args: dict[str, object]) -> None:
-        args['terrains'] = [TERRAIN_LAND]
         super().__init__(args)
 
         self.friendliness = 80
