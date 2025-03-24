@@ -44,12 +44,11 @@ class Horse(Equine):
         else: 
             squash = 'SUCCESS'
             status = 'there was an animal there?'
-        print(f'Attack on {victim} was {squash}, they have {status}')
-        
+        print(f'Attack on {victim} was {squash}, they have {status}') 
+
+
 
     def move(self: Horse, duration: int) -> None:
       self.walk(duration) 
     def walk(self: Horse, duration: int) -> None:
-       
-
-
+        pass
