@@ -7,9 +7,10 @@ from foods.Food import Meat
 
 class Dog(Mammal):
     loudness_bark: int
+    lung_capacity: int
 
-    def __init__(self: Dog, name: str, gender: str, fur_colour: str) -> None:
-        super().__init__(name, gender, fur_colour)
+    def __init__(self: Dog, args: dict[str, object]) -> None:
+        super().__init__(args)
         self.lung_capacity = 0
         self.lung_capacity = random.randint(0,50)
 
@@ -37,17 +38,19 @@ class Dog(Mammal):
     
 
 class Husky(Dog):
-    def __init__(self: Husky, name:str, gender:str) -> None:
-        super().__init__(name, gender, 'grey')
+    def __init__(self: Husky, args: dict[str, object]) -> None:
+        super().__init__(args)
+        self.fur_colour = 'grey'
         self.lung_capacity = 50
 
 
 class Chihauhua(Dog):
-    def __init__(self: Chihauhua, name:str, gender:str) -> None:
-        super().__init__(name, gender, 'beige')
+    def __init__(self: Chihauhua, args: dict[str, object]) -> None:
+        super().__init__(args)
+        self.fur_colour = 'beige'
         self.lung_capacity -= 30 
 
 class Mutt(Dog):
-    def __init__(self: Mutt, name:str, gender:str, fur_colour: str) -> None:
-        super().__init__(name, gender, fur_colour)
+    def __init__(self: Mutt, args: dict[str, object]) -> None:
+        super().__init__(args)
 
