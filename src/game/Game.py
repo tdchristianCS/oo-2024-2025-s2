@@ -17,6 +17,8 @@ from animals.Otter import Otter
 from animals.Rat import Rat
 from animals.Shark import Shark
 
+from game.constants import TERRAIN_LAND, TERRAIN_WATER
+
 MIN_ANIMALS = 5
 MAX_ANIMALS = 25
 ANIMALS = [Capybara, Cat, Husky, Chihuahua, Mutt, Elephant, Horse, Otter, Rat, Shark]
@@ -65,10 +67,14 @@ class Game:
 
         # Water: keep trying until valid point is found
 
+        needs_water = TERRAIN_LAND not in entity.terrains
+        needs_land = TERRAIN_WATER not in entity.terrains
+
         x = random.randint(min_x, max_x)
         y = random.randint(min_y, max_y)
         rect = pygame.Rect(x - (w / 2), y - (w / 2), w, h)
-        while self.is_on_water(rect):
+        while (needs_land and self.is_on_water(rect))\
+            or (needs_water and self.is_on_land(rect)):
             x = random.randint(min_x, max_x)
             y = random.randint(min_y, max_y)
             rect = pygame.Rect(x - (w / 2), y - (w / 2), w, h)
@@ -76,6 +82,9 @@ class Game:
         # Other animal: give up if on top of
         if not self.is_on_object(rect):
             return Point(x, y)
+    
+    def is_on_land(self: Game, check_rect: pygame.Rect) -> bool:
+        return not self.is_on_water(check_rect)
     
     def is_on_water(self: Game, check_rect: pygame.Rect) -> bool:
         for water_rect in self.level.water_rects:
