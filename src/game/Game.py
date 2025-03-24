@@ -16,6 +16,7 @@ from animals.Horse import Horse
 from animals.Otter import Otter
 from animals.Rat import Rat
 from animals.Shark import Shark
+from animals.barracuda import Barracuda
 
 from game.constants import TERRAIN_LAND, TERRAIN_WATER
 
