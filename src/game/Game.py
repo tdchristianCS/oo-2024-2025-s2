@@ -66,6 +66,8 @@ class Game:
         max_x = self.width - min_x
         max_y = self.height - min_y
 
+        print(min_x, max_x, min_y, max_y)
+
         # Water: keep trying until valid point is found
 
         x = random.randint(min_x, max_x)
