@@ -42,35 +42,27 @@ class Dog(Mammal):
             
         else:
             print(f'{self.name} is too tired to walk')
-    
 
 class Husky(Dog):
     def __init__(self: Husky, args: dict[str, object]) -> None:
-        super().__init__(args)
-        self.fur_colour = 'grey'
-        self.lung_capacity = 50
-
-
-class Chihauhua(Dog):
-    def __init__(self: Chihauhua, args: dict[str, object]) -> None:
-        super().__init__(args)
-        self.fur_colour = 'beige'
-        self.lung_capacity -= 30 
-
-class Mutt(Dog):
-    def __init__(self: Mutt, args: dict[str, object]) -> None:
         args['fur_colour'] = 'grey'
         super().__init__(args)
         self.lung_capacity = 50
 
-
 class Chihuahua(Dog):
-    def __init__(self: Chihuahua,  args: dict[str, object]) -> None:
+    """
+    From data: name, gender
+    Supplied: fur_colour
+    """
+    def __init__(self: Chihuahua, args: dict[str, object]) -> None:
         args['fur_colour'] = 'beige'
         super().__init__(args)
         self.lung_capacity -= 30 
 
 class Mutt(Dog):
-    def __init__(self: Mutt,  args: dict[str, object]) -> None:
+    """
+    From data: name, gender, fur_colour
+    """
+    def __init__(self: Mutt, args: dict[str, object]) -> None:
         super().__init__(args)
-
+        self.lung_capacity = 50
