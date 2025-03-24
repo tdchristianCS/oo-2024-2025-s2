@@ -79,8 +79,6 @@ class Animal(Entity):
                     else:
                         gender = random.choice(['M', 'F'])
 
-                    if name not in arg_choices:
-                        arg_choices['name'] = []
                     arg_choices['name'].append([name, gender])
                 
                 else:                    
