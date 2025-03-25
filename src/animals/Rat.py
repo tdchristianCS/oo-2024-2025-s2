@@ -5,14 +5,14 @@ from animals.Rodent import Rodent
 from foods.Food import Apple
 
 class Rat(Rodent):
-
+    friendliness = 0
+    speed = 5
+    size = 5
+    diet = [Apple]
+    
     def __init__(self: Rat, args: dict[str, object]) -> None:
         super().__init__(args)
 
-        self.friendliness = 0
-        self.speed = 5
-        self.size = 5
-        self.diet = [Apple]
         self.has_tail = True
         
         self.set_shared_info()
