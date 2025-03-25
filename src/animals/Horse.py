@@ -12,7 +12,7 @@ class Horse(Equine):
     memory_capability: int
     friendliness = 80
     speed = 70
-    size = 110
+    size = 70
     diet = [Apple]
 
 

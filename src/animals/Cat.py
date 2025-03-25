@@ -12,13 +12,11 @@ class Cat(Mammal):
     friendliness = 50
     speed = 40
     size = 30
+    diet = [Meat]
 
     def __init__(self: Cat, args: dict[str, object]) -> None:
         args['terrains'] = [TERRAIN_LAND]
         super().__init__(args)
-
-
-        self.diet = [Meat]
 
         if self.fur_colour == 'black':
             self.luck = 10

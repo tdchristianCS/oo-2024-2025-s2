@@ -4,7 +4,6 @@ import random
 from game.Entity import Entity
 from foods.Food import Food
 
-
 class Animal(Entity):
     age: int        # This is in seconds
     name: str

@@ -3,22 +3,19 @@ import random
 
 from animals.Rodent import Rodent
 from foods.Food import Apple
-from game.constants import TERRAIN_WATER, TERRAIN_LAND
 
 class Capybara(Rodent):
-   
-    swim_energy_meter: int
+    friendliness = 100
+    speed = 25
+    size = 25
+    diet = [Apple]
+    
 
     def __init__(self: Capybara, args: dict[str, object]) -> None:
-        args['terrains'] = [TERRAIN_WATER, TERRAIN_LAND]
-        
         super().__init__(args)
         self.swim_energy_meter = 100
 
-        self.friendliness = 100
-        self.speed = 25
-        self.size = 25
-        self.diet = [Apple]
+       
         self.has_tail = False
 
         self.set_shared_info()

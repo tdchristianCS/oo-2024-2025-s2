@@ -9,19 +9,15 @@ from game.constants import TERRAIN_LAND
 class Dog(Mammal):
     loudness_bark: int
     lung_capacity: int
+    diet = [Meat]
 
     def __init__(self: Dog, args: dict[str, object]) -> None:
         args['terrains'] = [TERRAIN_LAND]
         super().__init__(args)
         
-        self.lung_capacity = 0
-        self.lung_capacity = random.randint(0,50)
-        self.lung_capacity = random.randint(0, 50)
-
-        self.friendliness = 80
-        self.speed = 50
-        self.size = 50
-        self.diet = [Meat]
+        # self.lung_capacity = 0
+        # self.lung_capacity = random.randint(0,50)
+        # self.lung_capacity = random.randint(0, 50)
 
         self.set_shared_info()
         self.info['fur_colour'] = self.fur_colour
@@ -44,12 +40,21 @@ class Dog(Mammal):
             print(f'{self.name} is too tired to walk')
 
 class Husky(Dog):
+    lung_capacity = 75
+    friendliness = 70
+    speed = 70
+    size = 35
+
     def __init__(self: Husky, args: dict[str, object]) -> None:
         args['fur_colour'] = 'grey'
         super().__init__(args)
-        self.lung_capacity = 50
 
 class Chihuahua(Dog):
+    lung_capacity = 30 
+    friendliness = 90
+    speed = 100
+    size = 20
+
     """
     From data: name, gender
     Supplied: fur_colour
@@ -57,12 +62,15 @@ class Chihuahua(Dog):
     def __init__(self: Chihuahua, args: dict[str, object]) -> None:
         args['fur_colour'] = 'beige'
         super().__init__(args)
-        self.lung_capacity -= 30 
 
 class Mutt(Dog):
+    lung_capacity = 50
+    friendliness = 10
+    speed = 10
+    size = 30
+
     """
     From data: name, gender, fur_colour
     """
     def __init__(self: Mutt, args: dict[str, object]) -> None:
         super().__init__(args)
-        self.lung_capacity = 50

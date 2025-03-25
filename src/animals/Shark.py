@@ -8,17 +8,17 @@ from foods.Food import Meat
 class Shark(Fish):
     n_fish_eaten: int 
     size: int 
+    size = 80
+    speed = 60
+    friendliness = 10
+    diet = [Meat]   
+    n_fish_eaten = 0     
 
     def __init__(self: Shark, args: dict[str, object]) -> None:
         super().__init__(args)
       
 
-        self.size = 5
-        self.speed = 60
-        self.friendliness = 10
-        self.diet = [Meat]
-
-        self.n_fish_eaten = 0        
+     
         
         self.set_shared_info()
     
