@@ -11,7 +11,7 @@ class Elephant(Movable):
     speed = 25
     friendliness = 90
     diet = [Apple]
-    size = 85
+    size = 100
 
     def __init__(self: Elephant, args: dict[str, object]):
         args['fur_colour'] = 'grey'
