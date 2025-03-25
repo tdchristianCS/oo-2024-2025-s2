@@ -12,7 +12,7 @@ class Barracuda(Fish):
     n_teeth: int
     luck: bool
 
-    size = 2
+    size = 30
     speed = 50
     friendliness = 5
     diet = [Meat]
