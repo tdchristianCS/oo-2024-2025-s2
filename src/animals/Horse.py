@@ -10,6 +10,9 @@ class Horse(Equine):
     can_lock_legs: bool     #true :), so they don't fall while sleeping 
     hunger_pct: int 
     memory_capability: int
+    friendliness = 80
+    speed = 70
+    size = 110
     # Assuming that we can measure this on sonme sort of scale where different
     # sides: 0 being Dory Level --> 100 being MEGA MIND MEMORY 
     # (cause horses are big brain??)
@@ -17,9 +20,7 @@ class Horse(Equine):
     def __init__(self: Horse, args: dict[str, object]) -> None:
         super().__init__(args)
 
-        self.friendliness = 80
-        self.speed = 70
-        self.size = 110
+       
         self.diet = [Apple]
         
         self.set_shared_info()
