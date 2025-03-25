@@ -7,3 +7,6 @@
 ; If none is specified it will be available for both
 
 name::Scarfy
+name::Bingo
+name::kendrick Lamar 
+name::John 
