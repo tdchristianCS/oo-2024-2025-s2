@@ -9,6 +9,7 @@ from game.constants import TERRAIN_LAND
 class Dog(Mammal):
     loudness_bark: int
     lung_capacity: int
+    diet = [Meat]
 
     def __init__(self: Dog, args: dict[str, object]) -> None:
         args['terrains'] = [TERRAIN_LAND]
@@ -17,8 +18,6 @@ class Dog(Mammal):
         # self.lung_capacity = 0
         # self.lung_capacity = random.randint(0,50)
         # self.lung_capacity = random.randint(0, 50)
-
-        diet = [Meat]
 
         self.set_shared_info()
         self.info['fur_colour'] = self.fur_colour
