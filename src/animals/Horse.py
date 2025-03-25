@@ -13,15 +13,12 @@ class Horse(Equine):
     friendliness = 80
     speed = 70
     size = 110
-    # Assuming that we can measure this on sonme sort of scale where different
-    # sides: 0 being Dory Level --> 100 being MEGA MIND MEMORY 
-    # (cause horses are big brain??)
+    diet = [Apple]
+
 
     def __init__(self: Horse, args: dict[str, object]) -> None:
         super().__init__(args)
-
-       
-        self.diet = [Apple]
+        
         
         self.set_shared_info()
 

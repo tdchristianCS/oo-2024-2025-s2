@@ -9,14 +9,15 @@ from game.constants import TERRAIN_LAND
 class Cat(Mammal):
     fur_colour: str
     luck: bool
+    friendliness = 50
+    speed = 40
+    size = 30
 
     def __init__(self: Cat, args: dict[str, object]) -> None:
         args['terrains'] = [TERRAIN_LAND]
         super().__init__(args)
 
-        self.friendliness = 50
-        self.speed = 40
-        self.size = 30
+
         self.diet = [Meat]
 
         if self.fur_colour == 'black':
