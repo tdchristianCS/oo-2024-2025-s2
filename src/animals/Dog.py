@@ -43,7 +43,7 @@ class Husky(Dog):
     lung_capacity = 75
     friendliness = 70
     speed = 70
-    size = 60
+    size = 35
 
     def __init__(self: Husky, args: dict[str, object]) -> None:
         args['fur_colour'] = 'grey'
@@ -67,7 +67,7 @@ class Mutt(Dog):
     lung_capacity = 50
     friendliness = 10
     speed = 10
-    size = 40
+    size = 30
 
     """
     From data: name, gender, fur_colour
