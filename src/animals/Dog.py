@@ -18,10 +18,7 @@ class Dog(Mammal):
         self.lung_capacity = random.randint(0,50)
         self.lung_capacity = random.randint(0, 50)
 
-        self.friendliness = 80
-        self.speed = 50
-        self.size = 50
-        self.diet = [Meat]
+        diet = [Meat]
 
         self.set_shared_info()
         self.info['fur_colour'] = self.fur_colour
@@ -44,12 +41,16 @@ class Dog(Mammal):
             print(f'{self.name} is too tired to walk')
 
 class Husky(Dog):
+    lung_capacity = 75
     def __init__(self: Husky, args: dict[str, object]) -> None:
         args['fur_colour'] = 'grey'
         super().__init__(args)
-        self.lung_capacity = 50
+        friendliness = 70
+        speed = 70
+        size = 60
 
 class Chihuahua(Dog):
+    lung_capacity = 30 
     """
     From data: name, gender
     Supplied: fur_colour
@@ -57,12 +58,17 @@ class Chihuahua(Dog):
     def __init__(self: Chihuahua, args: dict[str, object]) -> None:
         args['fur_colour'] = 'beige'
         super().__init__(args)
-        self.lung_capacity -= 30 
+        friendliness = 90
+        speed = 100
+        size = 20
 
 class Mutt(Dog):
+    lung_capacity = 50
     """
     From data: name, gender, fur_colour
     """
     def __init__(self: Mutt, args: dict[str, object]) -> None:
         super().__init__(args)
-        self.lung_capacity = 50
+        friendliness = 10
+        speed = 10
+        size = 40
