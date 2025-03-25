@@ -12,12 +12,7 @@ import pygame
 
 # Create a GameState object to store global variables
 from game.Game import Game, GameState
-from game.GameObject import GameObject
 from game.Level import Level
-
-from animals.Cat import Cat
-from animals.Capybara import Capybara
-from animals.Horse import Horse
 
 # Make game object
 game = Game(1440, 800)
@@ -43,13 +38,6 @@ level = Level('zoolandia', img_bg)
 game.set_level(level)
 
 # Animals
-# Dummy code...
-# game.objects.extend([
-#     GameObject(Cat('Dinky', 'M', 'brown'), (100, 100)),
-#     GameObject(Cat('Army', 'F', 'black'), (200, 200)),
-#     GameObject(Capybara('Pinky', 'M', 'pink'), (400, 400)),
-#     GameObject(Horse('Stinky', 'F', 'white'), (300, 300)),
-# ])
 game.spawn_animals()
 
 # Debugging...

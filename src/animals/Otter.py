@@ -3,12 +3,15 @@ import random
 
 from animals.Mammal import Mammal
 from foods.Food import Apple
+from game.constants import TERRAIN_WATER, TERRAIN_LAND
+
 
 class Otter(Mammal):
     wetness_fatigue: int
     
     def __init__(self: Otter, args: dict[str, object]) -> None:
         args['fur_colour'] = 'brown'
+        args['terrains'] = [TERRAIN_WATER, TERRAIN_LAND]
         super().__init__(args)
         self.wetness_fatigue = 0
 

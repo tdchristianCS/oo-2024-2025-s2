@@ -4,12 +4,14 @@ import random
 from animals.Fish import Fish 
 from foods.Food import Meat
 
+
 class Shark(Fish):
     n_fish_eaten: int 
     size: int 
 
     def __init__(self: Shark, args: dict[str, object]) -> None:
         super().__init__(args)
+      
 
         self.size = 5
         self.speed = 60

@@ -4,12 +4,14 @@ from animals.Movable import Movable
 import random
 from animals.Animal import Animal
 from foods.Food import Apple
+from game.constants import TERRAIN_LAND
 
 class Elephant(Movable):
     trunk_length: int
 
     def __init__(self: Elephant, args: dict[str, object]):
         args['fur_colour'] = 'grey'
+        args['terrains'] = [TERRAIN_LAND]
         super().__init__(args)
         self.trunk_length = random.randint(10, 20)
 

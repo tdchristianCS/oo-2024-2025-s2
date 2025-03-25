@@ -4,12 +4,18 @@ import random
 # from the Mammal module import the Mammal class
 from animals.Mammal import Mammal
 from foods.Food import Meat
+from game.constants import TERRAIN_LAND
 
 class Dog(Mammal):
     loudness_bark: int
+    lung_capacity: int
 
     def __init__(self: Dog, args: dict[str, object]) -> None:
+        args['terrains'] = [TERRAIN_LAND]
         super().__init__(args)
+        
+        self.lung_capacity = 0
+        self.lung_capacity = random.randint(0,50)
         self.lung_capacity = random.randint(0, 50)
 
         self.friendliness = 80
@@ -36,7 +42,6 @@ class Dog(Mammal):
             
         else:
             print(f'{self.name} is too tired to walk')
-    
 
 class Husky(Dog):
     def __init__(self: Husky, args: dict[str, object]) -> None:
@@ -44,14 +49,20 @@ class Husky(Dog):
         super().__init__(args)
         self.lung_capacity = 50
 
-
 class Chihuahua(Dog):
-    def __init__(self: Chihuahua,  args: dict[str, object]) -> None:
+    """
+    From data: name, gender
+    Supplied: fur_colour
+    """
+    def __init__(self: Chihuahua, args: dict[str, object]) -> None:
         args['fur_colour'] = 'beige'
         super().__init__(args)
         self.lung_capacity -= 30 
 
 class Mutt(Dog):
-    def __init__(self: Mutt,  args: dict[str, object]) -> None:
+    """
+    From data: name, gender, fur_colour
+    """
+    def __init__(self: Mutt, args: dict[str, object]) -> None:
         super().__init__(args)
-
+        self.lung_capacity = 50

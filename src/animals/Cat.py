@@ -4,12 +4,14 @@ import random
 # from the Mammal module import the Mammal class
 from animals.Mammal import Mammal
 from foods.Food import Meat
+from game.constants import TERRAIN_LAND
 
 class Cat(Mammal):
     fur_colour: str
     luck: bool
 
     def __init__(self: Cat, args: dict[str, object]) -> None:
+        args['terrains'] = [TERRAIN_LAND]
         super().__init__(args)
 
         self.friendliness = 50

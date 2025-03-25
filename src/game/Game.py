@@ -16,10 +16,13 @@ from animals.Horse import Horse
 from animals.Otter import Otter
 from animals.Rat import Rat
 from animals.Shark import Shark
+from animals.Barracuda import Barracuda
 
-MIN_ANIMALS = 5
-MAX_ANIMALS = 25
-ANIMALS = [Capybara, Cat, Husky, Chihuahua, Mutt, Elephant, Horse, Otter, Rat, Shark]
+from game.constants import TERRAIN_LAND, TERRAIN_WATER
+
+MIN_ANIMALS = 500
+MAX_ANIMALS = 2500
+ANIMALS = [Capybara, Cat, Husky, Chihuahua, Mutt, Elephant, Horse, Otter, Rat, Shark, Barracuda]
 # ANIMALS = [Cat]
 
 class Game:
@@ -63,12 +66,14 @@ class Game:
         max_x = self.width - min_x
         max_y = self.height - min_y
 
+        print(min_x, max_x, min_y, max_y)
+
         # Water: keep trying until valid point is found
 
         x = random.randint(min_x, max_x)
         y = random.randint(min_y, max_y)
         rect = pygame.Rect(x - (w / 2), y - (w / 2), w, h)
-        while self.is_on_water(rect):
+        while not self.can_spawn_here(entity, rect):
             x = random.randint(min_x, max_x)
             y = random.randint(min_y, max_y)
             rect = pygame.Rect(x - (w / 2), y - (w / 2), w, h)
@@ -76,6 +81,17 @@ class Game:
         # Other animal: give up if on top of
         if not self.is_on_object(rect):
             return Point(x, y)
+
+    def can_spawn_here(self: Game, entity: Entity, check_rect: pygame.Rect) -> bool:
+        options = [
+            TERRAIN_LAND in entity.terrains and self.is_on_land(check_rect),
+            TERRAIN_WATER in entity.terrains and self.is_on_water(check_rect)
+        ]
+
+        return any(options)
+    
+    def is_on_land(self: Game, check_rect: pygame.Rect) -> bool:
+        return not self.is_on_water(check_rect)
     
     def is_on_water(self: Game, check_rect: pygame.Rect) -> bool:
         for water_rect in self.level.water_rects:

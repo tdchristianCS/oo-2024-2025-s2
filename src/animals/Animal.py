@@ -54,6 +54,7 @@ class Animal(Entity):
 
     @staticmethod
     def make_random_animal(_class: type) -> Animal:
+        # TODO All animals of the same species have the same name :(((
 
         arg_choices = {'name': []}
 
@@ -78,8 +79,6 @@ class Animal(Entity):
                     else:
                         gender = random.choice(['M', 'F'])
 
-                    if name not in arg_choices:
-                        arg_choices['name'] = []
                     arg_choices['name'].append([name, gender])
                 
                 else:                    
