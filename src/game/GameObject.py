@@ -1,5 +1,5 @@
 from __future__ import annotations
-import pygame.transform
+import pygame
 
 from game.Point import Point
 from game.Entity import Entity
