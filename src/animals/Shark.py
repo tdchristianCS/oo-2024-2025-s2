@@ -8,7 +8,7 @@ from foods.Food import Meat
 class Shark(Fish):
     n_fish_eaten: int 
     size: int 
-    size = 5
+    size = 80
     speed = 60
     friendliness = 10
     diet = [Meat]   
@@ -18,7 +18,7 @@ class Shark(Fish):
         super().__init__(args)
       
 
-    
+     
         
         self.set_shared_info()
     
