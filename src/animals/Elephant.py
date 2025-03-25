@@ -11,13 +11,13 @@ class Elephant(Movable):
     speed = 25
     friendliness = 90
     diet = [Apple]
+    size = 85
 
     def __init__(self: Elephant, args: dict[str, object]):
         args['fur_colour'] = 'grey'
         args['terrains'] = [TERRAIN_LAND]
         super().__init__(args)
         self.trunk_length = random.randint(10, 20)
-        self.diet = [Apple]
         self.size = random.randint(80, 90)
 
         self.set_shared_info()
