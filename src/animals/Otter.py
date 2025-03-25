@@ -8,17 +8,16 @@ from game.constants import TERRAIN_WATER, TERRAIN_LAND
 
 class Otter(Mammal):
     wetness_fatigue: int
+    speed = 20
+    size = 20
+    friendliness = 30
+    diet = [Apple]
     
     def __init__(self: Otter, args: dict[str, object]) -> None:
         args['fur_colour'] = 'brown'
         args['terrains'] = [TERRAIN_WATER, TERRAIN_LAND]
         super().__init__(args)
         self.wetness_fatigue = 0
-
-        self.friendliness = 30
-        self.speed = 20
-        self.size = 20
-        self.diet = [Apple]
         
         self.set_shared_info()
 
