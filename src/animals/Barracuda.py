@@ -12,16 +12,16 @@ class Barracuda(Fish):
     n_teeth: int
     luck: bool
 
+    size = 2
+    speed = 50
+    friendliness = 5
+    diet = [Meat]
+
     def __init__(self: Barracuda, args: dict[str, object]) -> None:
         super().__init__(args)
 
-        self.size = 2
-        self.speed = 60
-        self.friendliness = 10
-        self.diet = [Meat]
-
         self.n_fish_eaten = 0
-        n_teeth = random.choice(self.teeth_options)
+        self.n_teeth = random.choice(self.teeth_options)
 
         self.set_shared_info()
 
