@@ -2,8 +2,10 @@ from __future__ import annotations
 from game.assets import assets
 
 import pygame
+import math
 
-BASE_SIZE_FACTOR = 100
+BASE_SIZE_FACTOR = 60
+COLLAPSE_FACTOR = 1.5
 
 class Entity:
     image: object
@@ -22,6 +24,9 @@ class Entity:
 
         if key_scaled not in assets:
             image = assets[key]
-            scaled_image = pygame.transform.scale_by(image, cl_.size / BASE_SIZE_FACTOR)
+            # factor = (cl_.size + (abs(50 - cl_.size) ** 0.25)) / BASE_SIZE_FACTOR
+            # factor = cl_.size / BASE_SIZE_FACTOR
+            factor = (cl_.size + ((50 - cl_.size) / COLLAPSE_FACTOR)) / BASE_SIZE_FACTOR
+            scaled_image = pygame.transform.scale_by(image, factor)
             assets[key_scaled] = scaled_image
         self.image = assets[key_scaled]

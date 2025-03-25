@@ -7,7 +7,7 @@ from foods.Food import Apple
 class Rat(Rodent):
     friendliness = 0
     speed = 5
-    size = 10
+    size = 15
     diet = [Apple]
     
     def __init__(self: Rat, args: dict[str, object]) -> None:
