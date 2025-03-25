@@ -26,7 +26,8 @@ class Entity:
             image = assets[key]
             # factor = (cl_.size + (abs(50 - cl_.size) ** 0.25)) / BASE_SIZE_FACTOR
             # factor = cl_.size / BASE_SIZE_FACTOR
-            factor = (cl_.size + ((50 - cl_.size) / COLLAPSE_FACTOR)) / BASE_SIZE_FACTOR
+            # factor = (cl_.size + ((50 - cl_.size) / COLLAPSE_FACTOR)) / BASE_SIZE_FACTOR
+            factor = ((0.0004*(cl_.size - 50) ** 3) + 50)/100
             scaled_image = pygame.transform.scale_by(image, factor)
             assets[key_scaled] = scaled_image
         self.image = assets[key_scaled]
