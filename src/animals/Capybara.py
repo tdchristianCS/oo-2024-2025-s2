@@ -36,7 +36,7 @@ class Capybara(Rodent):
 
         print(f'{self.name} swam for {duration_swam} seconds. The swim energy meter is {self.swim_energy_meter}.')
 
-    def format_info_lines(self: Capybara) -> list[str]
+    def format_info_lines(self: Capybara) -> list[str]:
         return [
             f'{self.name} ({self.age} {self.gender})',
             f'Fur: {self.fur_colour}',
