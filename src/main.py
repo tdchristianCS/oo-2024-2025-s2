@@ -1,13 +1,3 @@
-MSG = """
-pygame demo f: movement, continuous
-Shows moving an object when an event fires,
-and continuing to move until another event fires.
-Use WASD or the arrow keys to test it out. You do not have to hold them.
-Watch the console for info about the object's X and Y positions.
-"""
-
-print(MSG)
-
 import pygame
 
 # Create a GameState object to store global variables

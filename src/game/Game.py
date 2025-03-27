@@ -66,8 +66,6 @@ class Game:
         max_x = self.width - min_x
         max_y = self.height - min_y
 
-        print(min_x, max_x, min_y, max_y)
-
         # Water: keep trying until valid point is found
 
         x = random.randint(min_x, max_x)
@@ -91,12 +89,27 @@ class Game:
         return any(options)
     
     def is_on_land(self: Game, check_rect: pygame.Rect) -> bool:
-        return not self.is_on_water(check_rect)
-    
-    def is_on_water(self: Game, check_rect: pygame.Rect) -> bool:
         for water_rect in self.level.water_rects:
             if check_rect.colliderect(water_rect):
+                return False
+        return True
+    
+    def is_on_water(self: Game, check_rect: pygame.Rect) -> bool:
+        print(check_rect.topleft)
+        corners = {
+            check_rect.topleft: False,
+            check_rect.topright: False,
+            check_rect.bottomleft: False,
+            check_rect.bottomright: False
+        }
+        for water_rect in self.level.water_rects:
+            for corner in corners:
+                if water_rect.collidepoint(corner):
+                    corners[corner] = True
+            
+            if all(corners.values()):
                 return True
+            
         return False
     
     def is_on_object(self: Game, check_rect: pygame.Rect) -> bool:
