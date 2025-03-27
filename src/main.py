@@ -83,10 +83,16 @@ while game.state == gsRunning:
     game.level.draw(window)
     # game.level.draw_water(window) # Debugging
 
+    mp = pygame.mouse.get_pos()
     for o in game.objects:
         o.draw(window)
         # o.draw_hitbox(window) # Debugging
-        o.draw_info(window, font_info)
+        # o.draw_info(window, font_info)
+
+    for o in game.objects:
+        if o.rect.collidepoint(mp):
+            o.draw_info(window, font_info)
+            break
 
     # # Debug
     # if debug_text:
