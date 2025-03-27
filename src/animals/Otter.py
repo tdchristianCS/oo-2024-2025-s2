@@ -37,3 +37,10 @@ class Otter(Mammal):
                 self.wetness_fatigue = 100
 
             print(f'{self.name} swam for {duration} seconds. New wetness fatigue: {self.wetness_fatigue}%')
+
+    def format_info_lines(self: Cat) -> str:
+        return [
+            f'{self.name} ({self.age} {self.gender})',
+            f'Fur: {self.fur_colour}',
+            f'Diet: {self.diet}'
+        ]    
