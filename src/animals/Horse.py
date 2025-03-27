@@ -53,7 +53,7 @@ class Horse(Equine):
     def walk(self: Horse, duration: int) -> None:
         pass 
 
-    def format_info_lines(self: Horse) -> str:
+    def format_info_lines(self: Horse) -> list[str]:
         return [
             f'{self.name} ({self.age} {self.gender})',
             f'Fur: {self.fur_colour}',
