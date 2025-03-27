@@ -40,6 +40,6 @@ class Capybara(Rodent):
         return [
             f'{self.name} ({self.age} {self.gender})',
             f'Fur: {self.fur_colour}',
-            f'Diet: {self.diet}'
+            f'Diet: {self.format_diet()}'
             f'Friendliness: {self.friendliness}'
         ]

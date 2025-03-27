@@ -22,6 +22,7 @@ class Barracuda(Fish):
 
         self.n_fish_eaten = 0
         self.n_teeth = random.choice(self.teeth_options)
+        self.luck = random.randint(1, 5)
 
         self.set_shared_info()
 
@@ -63,7 +64,7 @@ class Barracuda(Fish):
         return [
             f'{self.name} ({self.age} {self.gender})',
             f'Teeth: {self.n_teeth}',
-            f'Diet: {self.diet}'
+            f'Diet: {self.format_diet()}',
             f'Luck: {self.luck}'
         ]
 

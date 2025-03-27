@@ -100,3 +100,7 @@ class Animal(Entity):
             args[key] = random.choice(arg_choices[key])
 
         return _class(args)
+
+    def format_diet(self: Animal) -> str:
+        return ', '.join(cl_.__name__ for cl_ in self.diet)
+    

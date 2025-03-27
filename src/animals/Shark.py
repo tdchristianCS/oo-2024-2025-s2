@@ -11,7 +11,7 @@ class Shark(Fish):
     size = 80
     speed = 60
     friendliness = 10
-    diet = [Meat]   
+    diet = [Meat]
     n_fish_eaten = 0     
 
     def __init__(self: Shark, args: dict[str, object]) -> None:
@@ -43,7 +43,7 @@ class Shark(Fish):
         return [
             f'{self.name} ({self.age} {self.gender})',
             f'Size: {self.size}',
-            f'Diet: {self.diet}',
+            f'Diet: {self.format_diet()}',
             f'Friendliness: {self.friendliness}',
             f'Fish eaten: {self.n_fish_eaten}',
         ]

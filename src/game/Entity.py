@@ -34,7 +34,6 @@ class Entity:
 
     def format_info_lines(self: Entity) -> list[str]:
         return[""]
-
-    def format_info(self: Entity) -> str:
-        return '\n'.join(self.format_info_lines())
     
+    def __repr__(self: Entity) -> str:
+        return type(self).__name__

@@ -4,6 +4,9 @@ import pygame
 from game.Point import Point
 from game.Entity import Entity
 
+LINE_SPACING = 2
+STROKE_WIDTH = 2
+
 class GameObject:
     point: Point
     image: object
@@ -32,9 +35,17 @@ class GameObject:
         pygame.draw.rect(surface, '#ff00ff', self.rect, 2)
 
     def draw_info(self: GameObject, surface: object, font: object) -> None:
-        s = f"{self.entity.info['name']} ({self.entity.info['gender']})"
+        lines = self.entity.format_info_lines()
 
-        text = font.render(s, False, (255, 255, 255))
-        w = self.image.get_width()
-        h = self.image.get_height()
-        surface.blit(text, (self.point.x - (w / 2), (self.point.y + (h / 2))))
+        for i in range(len(lines)):
+            line = lines[i]
+
+            text_under = font.render(line, False, (0, 0, 0))
+            text_over = font.render(line, False, (255, 255, 255))
+            x = self.rect.left
+            y = self.rect.bottom + LINE_SPACING + ((text_over.get_height() + LINE_SPACING) * i)
+            surface.blit(text_under, (x, y + STROKE_WIDTH))
+            surface.blit(text_under, (x, y - STROKE_WIDTH))
+            surface.blit(text_under, (x + STROKE_WIDTH, y))
+            surface.blit(text_under, (x - STROKE_WIDTH, y))
+            surface.blit(text_over, (x, y))
