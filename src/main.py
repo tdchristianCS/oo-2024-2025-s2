@@ -19,6 +19,8 @@ font_info = pygame.font.SysFont('Comic Sans', 16)
 
 # Initialize game variables
 gsRunning = GameState('running')
+gsRunning.set_fps(60)
+
 gsQuit = GameState('quit')
 
 # Level
@@ -104,6 +106,8 @@ while game.state == gsRunning:
 
     # Update the display
     pygame.display.flip()
+
+    game.state.wait_fps()
 
 # Quit the window
 pygame.quit()
