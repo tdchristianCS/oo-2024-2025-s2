@@ -31,6 +31,7 @@ class Animal(Entity):
         self.name, self.gender = args['name']
 
         # Then we set the attributes that have default values
+        # TODO increase age with every second?
         self.age = 0
 
         # For n_legs, there may be no default value that makes sense
