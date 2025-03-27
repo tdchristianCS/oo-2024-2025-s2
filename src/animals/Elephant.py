@@ -42,3 +42,12 @@ class Elephant(Movable):
         while target.health_points >= 0:
             self.trunk_slap(target)
             self.move(10)
+
+    def format_info_lines(self: Elephant) -> list[str]:
+        return [
+            f'{self.name} ({self.age} {self.gender})',
+            f'Fur: {self.fur_colour}',
+            f'Diet: {self.diet}',
+            f'Size: {self.size}',
+            f'Trunk Length: {self.trunk_length}'
+        ]
