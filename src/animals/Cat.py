@@ -52,9 +52,8 @@ class Cat(Mammal):
             print(f'{self.name} tripped on {pronoun}')
     
     def format_info_lines(self: Cat) -> list[str]:
-        return [
-            f'{self.name} ({self.age} {self.gender})',
-            f'Fur: {self.fur_colour}',
-            f'Diet: {self.format_diet()}',
-            f'Luck: {self.luck}',
-        ]
+        lines = super().format_info_lines()
+        lines.extend([
+            f'Fur: {self.fur_colour}'
+        ])
+        return lines
