@@ -22,3 +22,11 @@ class Rat(Rodent):
 
     def walk(self: Rat, duration: int) -> None:
         print(f'{self.name} walked for {duration} seconds.')
+
+    def format_info_lines(self: Rat) -> list[str]:
+        return [
+            f'{self.name} ({self.age} {self.gender})',
+            f'Friendliness: {self.friendliness}',
+            f'Diet: {self.diet}',
+            f'Size: {self.size}',
+        ]
