@@ -87,6 +87,7 @@ while game.state == gsRunning:
 
     mp = pygame.mouse.get_pos()
     for o in game.objects:
+        o.update()
         o.draw(window)
         # o.draw_hitbox(window) # Debugging
         # o.draw_info(window, font_info)
@@ -108,6 +109,7 @@ while game.state == gsRunning:
     pygame.display.flip()
 
     game.state.wait_fps()
+    game.state.fps_clock.tick()
 
 # Quit the window
 pygame.quit()

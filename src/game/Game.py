@@ -20,8 +20,8 @@ from animals.Barracuda import Barracuda
 
 from game.constants import TERRAIN_LAND, TERRAIN_WATER
 
-MIN_ANIMALS = 1000
-MAX_ANIMALS = 5000
+MIN_ANIMALS = 10
+MAX_ANIMALS = 50
 ANIMALS = [Capybara, Cat, Husky, Chihuahua, Mutt, Elephant, Horse, Otter, Rat, Shark, Barracuda]
 # ANIMALS = [Cat]
 

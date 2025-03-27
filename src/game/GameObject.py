@@ -77,3 +77,7 @@ class GameObject:
             x = self.rect.left
             y = self.rect.bottom + LINE_SPACING + ((rendered.get_height() + LINE_SPACING) * i)
             surface.blit(rendered, (x, y))
+
+    def update(self: GameObject) -> None:
+        self.entity.update()
+        
