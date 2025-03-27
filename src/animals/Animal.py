@@ -4,7 +4,10 @@ import random
 from game.Entity import Entity
 from foods.Food import Food
 
+import pygame
+
 class Animal(Entity):
+    birth_age: int
     age: int        # This is in seconds
     name: str
     gender: str
@@ -31,7 +34,7 @@ class Animal(Entity):
         self.name, self.gender = args['name']
 
         # Then we set the attributes that have default values
-        # TODO increase age with every second?
+        self.birth_age = pygame.time.get_ticks()
         self.age = 0
 
         # For n_legs, there may be no default value that makes sense
@@ -119,3 +122,7 @@ class Animal(Entity):
             f'{self.format_friendliness()}  |  {self.format_speed()}  |  {self.format_size()}',
             self.format_diet()
         ]
+
+    def update(self: Animal) -> None:
+        """Set age to the number of seconds passed."""
+        self.age = (pygame.time.get_ticks() // 1_000) - self.birth_age

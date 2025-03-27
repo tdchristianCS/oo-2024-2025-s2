@@ -34,7 +34,7 @@ game.spawn_animals()
 
 # Timed events
 e_spawn_animal = pygame.USEREVENT + 1
-pygame.time.set_timer(e_spawn_animal, 2_000)
+pygame.time.set_timer(e_spawn_animal, 1_000)
 
 # Debugging...
 # game.debug_mousedown_pos = None

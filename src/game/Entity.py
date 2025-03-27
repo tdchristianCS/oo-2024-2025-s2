@@ -34,7 +34,3 @@ class Entity:
 
     def format_info_lines(self: Entity) -> list[str]:
         return[""]
-    
-    def update(self: Entity) -> None:
-        """Set age to the number of seconds passed."""
-        self.age = pygame.time.get_ticks() // 1_000
