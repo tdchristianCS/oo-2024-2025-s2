@@ -9,7 +9,6 @@ class Capybara(Rodent):
     speed = 25
     size = 25
     diet = [Apple]
-    
 
     def __init__(self: Capybara, args: dict[str, object]) -> None:
         super().__init__(args)
@@ -36,3 +35,11 @@ class Capybara(Rodent):
             self.swim_energy_meter = 0
 
         print(f'{self.name} swam for {duration_swam} seconds. The swim energy meter is {self.swim_energy_meter}.')
+
+    def format_info_lines(self: Capybara) -> list[str]:
+        return [
+            f'{self.name} ({self.age} {self.gender})',
+            f'Fur: {self.fur_colour}',
+            f'Diet: {self.diet}'
+            f'Friendliness: {self.friendliness}'
+        ]
