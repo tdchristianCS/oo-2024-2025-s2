@@ -39,6 +39,14 @@ class Dog(Mammal):
         else:
             print(f'{self.name} is too tired to walk')
 
+    def format_info_lines(self: Dog) -> list[str]:
+        return [
+            f'{self.name} ({self.age} {self.gender})',
+            f'Fur: {self.fur_colour}',
+            f'Diet: {self.diet}'
+            
+        ]
+
 class Husky(Dog):
     lung_capacity = 75
     friendliness = 70
@@ -74,11 +82,3 @@ class Mutt(Dog):
     """
     def __init__(self: Mutt, args: dict[str, object]) -> None:
         super().__init__(args)
-
-    def format_info_lines(self: Dog) -> list[str]:
-        return [
-            f'{self.name} ({self.age} {self.gender})',
-            f'Fur: {self.fur_colour}',
-            f'Diet: {self.diet}'
-            
-        ]
