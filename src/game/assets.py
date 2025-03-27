@@ -9,3 +9,5 @@ keys = [
 assets = {}
 for key in keys:
     assets[key] = pygame.image.load(f'src/assets/{key}.png')
+
+tr_60 = pygame.image.load('src/assets/60.png')

@@ -4,6 +4,8 @@ import pygame
 from game.Point import Point
 from game.Entity import Entity
 
+from game.assets import tr_60
+
 LINE_SPACING = 2
 STROKE_WIDTH = 2
 
@@ -42,6 +44,7 @@ class GameObject:
 
             text_under = font.render(line, False, (0, 0, 0))
             text_over = font.render(line, False, (255, 255, 255))
+
             x = self.rect.left
             y = self.rect.bottom + LINE_SPACING + ((text_over.get_height() + LINE_SPACING) * i)
             surface.blit(text_under, (x, y + STROKE_WIDTH))
@@ -49,3 +52,28 @@ class GameObject:
             surface.blit(text_under, (x + STROKE_WIDTH, y))
             surface.blit(text_under, (x - STROKE_WIDTH, y))
             surface.blit(text_over, (x, y))
+
+    def draw_info_bg(self: GameObject, surface: object, font: object) -> None:
+        lines = self.entity.format_info_lines()
+
+        w_biggest = 0
+
+        rendered_lines = []
+        for line in lines:
+            rendered = font.render(line, False, (255, 255, 255))
+            rendered_lines.append(rendered)
+            w = rendered.get_width()
+            if w_biggest < w:
+                w_biggest = w
+
+        h_overall = LINE_SPACING + ((rendered_lines[0].get_height() + LINE_SPACING) * len(lines))
+
+        bg_scaled = pygame.transform.scale(tr_60, (w_biggest, h_overall))
+        surface.blit(bg_scaled, self.rect.bottomleft)
+
+        for i in range(len(rendered_lines)):
+            rendered = rendered_lines[i]
+
+            x = self.rect.left
+            y = self.rect.bottom + LINE_SPACING + ((rendered.get_height() + LINE_SPACING) * i)
+            surface.blit(rendered, (x, y))
