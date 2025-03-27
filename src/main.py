@@ -18,10 +18,10 @@ font_debug = pygame.font.SysFont('Courier New', 24)
 font_info = pygame.font.SysFont('Comic Sans', 16)
 
 # Initialize game variables
-gsRunning = GameState('running')
-gsRunning.set_fps(60)
+gs_running = GameState('running')
+gs_running.set_fps(60)
 
-gsQuit = GameState('quit')
+gs_quit = GameState('quit')
 
 # Level
 img_bg = pygame.image.load('src/assets/bg.png')
@@ -49,8 +49,8 @@ pygame.time.set_timer(e_spawn_animal, 1_000)
 #     return pygame.Rect(left, top, right - left, bottom - top)
 
 # Main loop
-game.state = gsRunning
-while game.state == gsRunning:
+game.state = gs_running
+while game.state == gs_running:
 
     # debug_text = None
 
@@ -59,7 +59,7 @@ while game.state == gsRunning:
 
         # User clicks window close button
         if event.type == pygame.QUIT:
-            game.state = gsQuit
+            game.state = gs_quit
 
         # Spawn animal
         elif event.type == e_spawn_animal:
