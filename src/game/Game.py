@@ -95,7 +95,6 @@ class Game:
         return True
     
     def is_on_water(self: Game, check_rect: pygame.Rect) -> bool:
-        print(check_rect.topleft)
         corners = {
             check_rect.topleft: False,
             check_rect.topright: False,

@@ -24,9 +24,9 @@ class Rat(Rodent):
         print(f'{self.name} walked for {duration} seconds.')
 
     def format_info_lines(self: Rat) -> list[str]:
-        return [
-            f'{self.name} ({self.age} {self.gender})',
-            f'Friendliness: {self.friendliness}',
-            f'Diet: {self.format_diet()}',
-            f'Size: {self.size}',
-        ]
+        lines = super().format_info_lines()
+        lines.extend([
+            f'Fur: {self.fur_colour}',
+            f'Diseases: {self.diseases}'
+        ])
+        return lines

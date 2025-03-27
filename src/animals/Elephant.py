@@ -44,9 +44,8 @@ class Elephant(Movable):
             self.move(10)
 
     def format_info_lines(self: Elephant) -> list[str]:
-        return [
-            f'{self.name} ({self.age} {self.gender})',
-            f'Diet: {self.format_diet()}',
-            f'Size: {self.size}',
-            f'Trunk Length: {self.trunk_length}'
-        ]
+        lines = super().format_info_lines()
+        lines.extend([
+            f'Trunk length: {self.trunk_length}'
+        ])
+        return lines

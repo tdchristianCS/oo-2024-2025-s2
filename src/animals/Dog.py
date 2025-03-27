@@ -40,12 +40,12 @@ class Dog(Mammal):
             print(f'{self.name} is too tired to walk')
 
     def format_info_lines(self: Dog) -> list[str]:
-        return [
-            f'{self.name} ({self.age} {self.gender})',
+        lines = super().format_info_lines()
+        lines.extend([
             f'Fur: {self.fur_colour}',
-            f'Diet: {self.format_diet()}'
-            
-        ]
+            f'Lung capacity: {self.lung_capacity}'
+        ])
+        return lines
 
 class Husky(Dog):
     lung_capacity = 75

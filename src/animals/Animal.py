@@ -102,5 +102,26 @@ class Animal(Entity):
         return _class(args)
 
     def format_diet(self: Animal) -> str:
-        return ', '.join(cl_.__name__ for cl_ in self.diet)
+        return '🍕' + ', '.join(cl_.__name__ for cl_ in self.diet)
     
+    def format_friendliness(self: Animal) -> str:
+        return f'❤️ {self.frendliness}'
+    
+    def format_speed(self: Animal) -> str:
+        return f'⏩ {self.speed}'
+    
+    def format_size(self: Animal) -> str:
+        return f'🪐 {self.size}'
+    
+    def format_gender(self: Animal) -> str:
+        if self.gender == 'M':
+            return '♂'
+        elif self.gender == 'F':
+            return '♀'
+    
+    def format_info_lines(self: Animal) -> str:
+        return [
+            f'{self.name} ({self.format_gender()} {self.age})',
+            f'{self.format_size()} {self.format_speed()} {self.format_size()}',
+            self.format_diet()
+        ]

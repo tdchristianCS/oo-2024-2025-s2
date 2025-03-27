@@ -39,8 +39,8 @@ class Otter(Mammal):
             print(f'{self.name} swam for {duration} seconds. New wetness fatigue: {self.wetness_fatigue}%')
 
     def format_info_lines(self: Otter) -> list[str]:
-        return [
-            f'{self.name} ({self.age} {self.gender})',
-            f'Fur: {self.fur_colour}',
-            f'Diet: {self.format_diet()}'
-        ]    
+        lines = super().format_info_lines()
+        lines.extend([
+            f'Fur: {self.fur_colour}'
+        ])
+        return lines
