@@ -38,3 +38,13 @@ class Shark(Fish):
                 self.n_fish_eaten < 10 
 
                 print(f'{self.name} swam for {duration} seconds. The current fish eaten: {self.n_fish_eaten}int' )
+    
+    def format_info_lines(self: Shark) -> str:
+        return [
+            f'{self.name} ({self.age} {self.gender})',
+            f'Size: {self.size}',
+            f'Diet: {self.diet}',
+            f'Friendliness: {self.friendliness}',
+            f'Fish eaten: {self.n_fish_eaten}',
+        ]
+     
