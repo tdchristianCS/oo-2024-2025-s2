@@ -61,4 +61,12 @@ class Barracuda(Fish):
 
 if __name__ == '__main__':
     b = Barracuda('LOL', 'F')
-    b.swim(5)
+    b.swim(5)   
+
+    def format_info_lines(self: Barracuda) -> list[str]:
+        return [
+            f'{self.name} ({self.age} {self.gender})',
+            f'Teeth: {self.n_teeth}',
+            f'Diet: {self.diet}'
+            f'Luck: {self.luck}'
+        ]
