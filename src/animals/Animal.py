@@ -125,4 +125,4 @@ class Animal(Entity):
 
     def update(self: Animal) -> None:
         """Set age to the number of seconds passed."""
-        self.age = (pygame.time.get_ticks() // 1_000) - self.birth_age
+        self.age = (pygame.time.get_ticks() - self.birth_age) // 1_000
