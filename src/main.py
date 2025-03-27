@@ -32,6 +32,10 @@ game.set_level(level)
 # Animals
 game.spawn_animals()
 
+# Timed events
+e_spawn_animal = pygame.USEREVENT + 1
+pygame.time.set_timer(e_spawn_animal, 2_000)
+
 # Debugging...
 # game.debug_mousedown_pos = None
 # game.debug_mouseup_pos = None
@@ -56,6 +60,10 @@ while game.state == gsRunning:
         # User clicks window close button
         if event.type == pygame.QUIT:
             game.state = gsQuit
+
+        # Spawn animal
+        elif event.type == e_spawn_animal:
+            game.spawn_animal()
 
         # elif event.type == pygame.MOUSEMOTION:
         #     pos = pygame.mouse.get_pos()

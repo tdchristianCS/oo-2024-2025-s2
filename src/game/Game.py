@@ -44,11 +44,16 @@ class Game:
     def spawn_animals(self: Game) -> None:
         n_animals = random.randint(MIN_ANIMALS, MAX_ANIMALS)
         for _ in range(n_animals):
-            animal = self.spawn_animal()
+            animal = self.create_animal()
             if animal:
                 self.objects.append(animal)
 
-    def spawn_animal(self: Game) -> GameObject:
+    def spawn_animal(self: Game) -> None:
+        animal = self.create_animal()
+        if animal:
+            self.objects.append(animal)
+
+    def create_animal(self: Game) -> GameObject:
         animal = self.choose_animal()
         point = self.choose_point(animal)
         if point:
