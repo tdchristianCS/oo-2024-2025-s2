@@ -17,14 +17,23 @@ class Shark(Fish):
     def __init__(self: Shark, args: dict[str, object]) -> None:
         super().__init__(args)
       
-
+        """
+        Expected ARGS's : 
+        name 
+        gender
+        """
      
-        
+
         self.set_shared_info()
     
-    def swim(self: Shark, duration: int) -> None: 
+    def swim(self: Shark, duration: int) -> None:
+        """
+        Eat fish based on the Shark's size and the swim duration.
+        """
         if self.size > 10: 
             self.n_fish_eaten == 20 
+ 
+            
 
         elif self.size < 10: 
             self.n_fish_eaten = 10
@@ -40,6 +49,9 @@ class Shark(Fish):
                 print(f'{self.name} swam for {duration} seconds. The current fish eaten: {self.n_fish_eaten}int' )
     
     def format_info_lines(self: Shark) -> str:
+        """
+        Gives information on the animal
+        """        
         lines = super().format_info_lines()
         lines.extend([
             f'Fish eaten: {self.n_fish_eaten}'
