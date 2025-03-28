@@ -105,7 +105,7 @@ class Animal(Entity):
         return _class(args)
 
     def format_diet(self: Animal) -> str:
-        return ':F  ' + ', '.join(cl_.__name__ for cl_ in self.diet)
+        return 'Diet: ' + ', '.join(cl_.__name__ for cl_ in self.diet)
     
     def format_friendliness(self: Animal) -> str:
         return f'<3  {self.friendliness}'
@@ -114,7 +114,7 @@ class Animal(Entity):
         return f'>>  {self.speed}'
     
     def format_size(self: Animal) -> str:
-        return f'^^  {self.size}'
+        return f'++  {self.size}'
     
     def format_info_lines(self: Animal) -> str:
         return [
