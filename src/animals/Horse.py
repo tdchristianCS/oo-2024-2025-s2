@@ -27,8 +27,6 @@ class Horse(Equine):
         Expected args:
           - name 
           - gender
-          - terrians 
-          - fur_colour
         """
         super().__init__(args)
         
