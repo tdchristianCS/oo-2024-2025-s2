@@ -114,6 +114,7 @@ class Animal(Entity):
         return f'>>  {self.speed}'
     
     def format_size(self: Animal) -> str:
+        """Return this animal's size, nicely formatted for the infobox."""
         return f'++  {self.size}'
     
     def format_info_lines(self: Animal) -> str:
