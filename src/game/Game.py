@@ -20,8 +20,8 @@ from animals.Barracuda import Barracuda
 
 from game.constants import TERRAIN_LAND, TERRAIN_WATER
 
-MIN_ANIMALS = 10
-MAX_ANIMALS = 50
+MIN_ANIMALS = 1
+MAX_ANIMALS = 10
 ANIMALS = [Capybara, Cat, Husky, Chihuahua, Mutt, Elephant, Horse, Otter, Rat, Shark, Barracuda]
 # ANIMALS = [Cat]
 
@@ -44,11 +44,16 @@ class Game:
     def spawn_animals(self: Game) -> None:
         n_animals = random.randint(MIN_ANIMALS, MAX_ANIMALS)
         for _ in range(n_animals):
-            animal = self.spawn_animal()
+            animal = self.create_animal()
             if animal:
                 self.objects.append(animal)
 
-    def spawn_animal(self: Game) -> GameObject:
+    def spawn_animal(self: Game) -> None:
+        animal = self.create_animal()
+        if animal:
+            self.objects.append(animal)
+
+    def create_animal(self: Game) -> GameObject:
         animal = self.choose_animal()
         point = self.choose_point(animal)
         if point:
@@ -95,7 +100,6 @@ class Game:
         return True
     
     def is_on_water(self: Game, check_rect: pygame.Rect) -> bool:
-        print(check_rect.topleft)
         corners = {
             check_rect.topleft: False,
             check_rect.topright: False,
@@ -117,6 +121,14 @@ class Game:
             if check_rect.colliderect(object.rect):
                 return True
         return False
+    
+    def update_objects(self: Game) -> None:
+        new_objects = []
+        for o in self.objects:
+            still_alive = o.update()
+            if still_alive:
+                new_objects.append(o)
+        self.objects = new_objects
 
 class GameState:
     """

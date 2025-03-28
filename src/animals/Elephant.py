@@ -14,6 +14,9 @@ class Elephant(Movable):
     size = 100
 
     def __init__(self: Elephant, args: dict[str, object]):
+        """
+        
+        """
         args['fur_colour'] = 'grey'
         args['terrains'] = [TERRAIN_LAND]
         super().__init__(args)
@@ -23,6 +26,10 @@ class Elephant(Movable):
         self.set_shared_info()
 
     def trunk_slap(self: Elephant, target: Animal):
+        """
+        set power to a random number between 1-20
+        print attack effectiveness and target status depending on power
+        """
         power = random.randint(1, 20)
         if power < 5:
             strike = 'not effective'
@@ -39,15 +46,19 @@ class Elephant(Movable):
         print(f'The attack was {strike}. {target} {status}')
 
     def chase(self: Elephant, target: Animal):
+        """
+        call self.trunk_slap and self.move until the target health points equal 0
+        """
         while target.health_points >= 0:
             self.trunk_slap(target)
             self.move(10)
 
     def format_info_lines(self: Elephant) -> list[str]:
-        return [
-            f'{self.name} ({self.age} {self.gender})',
-            f'Fur: {self.fur_colour}',
-            f'Diet: {self.diet}',
-            f'Size: {self.size}',
-            f'Trunk Length: {self.trunk_length}'
-        ]
+        """
+        Get lines from Animal and add trunk length to line
+        """
+        lines = super().format_info_lines()
+        lines.extend([
+            f'Trunk length: {self.trunk_length}'
+        ])
+        return lines

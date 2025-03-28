@@ -4,10 +4,18 @@ import random
 from game.Entity import Entity
 from foods.Food import Food
 
+import pygame
+
 class Animal(Entity):
-    age: int        # This is in seconds
+    """
+    An Animal is a type of Entity that is intended to move around,
+    eat, interact, die, etc.
+    """
+
+    birth_age: int  # This is in milliseconds
+    age: int        # This is in milliseconds
     name: str
-    gender: str
+    gender: str     # Currently limited to
     n_legs: int
     # IQ: int
     friendliness: int
@@ -16,8 +24,7 @@ class Animal(Entity):
     # domesticablity_pct: int
     size: float
     diet: list[Food]
-    can_ride: bool
-    image: object
+    # can_ride: bool
 
     def __init__(self: Animal, args: dict[str, object]) -> None:
         """
@@ -31,7 +38,7 @@ class Animal(Entity):
         self.name, self.gender = args['name']
 
         # Then we set the attributes that have default values
-        # TODO increase age with every second?
+        self.birth_age = pygame.time.get_ticks()
         self.age = 0
 
         # For n_legs, there may be no default value that makes sense
@@ -100,3 +107,34 @@ class Animal(Entity):
             args[key] = random.choice(arg_choices[key])
 
         return _class(args)
+
+    def format_diet(self: Animal) -> str:
+        return 'Diet: ' + ', '.join(cl_.__name__ for cl_ in self.diet)
+    
+    def format_friendliness(self: Animal) -> str:
+        return f'<3  {self.friendliness}'
+    
+    def format_speed(self: Animal) -> str:
+        return f'>>  {self.speed}'
+    
+    def format_size(self: Animal) -> str:
+        """Return this animal's size, nicely formatted for the infobox."""
+        return f'++  {self.size}'
+    
+    def format_info_lines(self: Animal) -> str:
+        return [
+            f'{self.name} ({self.gender} {self.age})',
+            f'{self.format_friendliness()}  |  {self.format_speed()}  |  {self.format_size()}',
+            self.format_diet()
+        ]
+
+    def update(self: Animal) -> bool:
+        """
+        Update this Animal's state.
+        - Set age to the number of seconds passed.
+        - (TODO Testing) If age >= approximately 10, the animal dies.
+
+        Return True iff the Animal is still alive at the end of the update.
+        """
+        self.age = (pygame.time.get_ticks() - self.birth_age) // 1_000
+        return self.age < random.randint(8, 12)        

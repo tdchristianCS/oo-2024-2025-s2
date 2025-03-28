@@ -18,8 +18,9 @@ font_debug = pygame.font.SysFont('Courier New', 24)
 font_info = pygame.font.SysFont('Comic Sans', 16)
 
 # Initialize game variables
-gsRunning = GameState('running')
-gsQuit = GameState('quit')
+gs_running = GameState('running')
+
+gs_quit = GameState('quit')
 
 # Level
 img_bg = pygame.image.load('src/assets/bg.png')
@@ -29,6 +30,10 @@ game.set_level(level)
 
 # Animals
 game.spawn_animals()
+
+# Timed events
+e_spawn_animal = pygame.USEREVENT + 1
+pygame.time.set_timer(e_spawn_animal, 100)
 
 # Debugging...
 # game.debug_mousedown_pos = None
@@ -43,8 +48,8 @@ game.spawn_animals()
 #     return pygame.Rect(left, top, right - left, bottom - top)
 
 # Main loop
-game.state = gsRunning
-while game.state == gsRunning:
+game.state = gs_running
+while game.state == gs_running:
 
     # debug_text = None
 
@@ -53,7 +58,11 @@ while game.state == gsRunning:
 
         # User clicks window close button
         if event.type == pygame.QUIT:
-            game.state = gsQuit
+            game.state = gs_quit
+
+        # Spawn animal
+        elif event.type == e_spawn_animal:
+            game.spawn_animal()
 
         # elif event.type == pygame.MOUSEMOTION:
         #     pos = pygame.mouse.get_pos()
@@ -83,10 +92,19 @@ while game.state == gsRunning:
     game.level.draw(window)
     # game.level.draw_water(window) # Debugging
 
+    game.update_objects()
+
+    mp = pygame.mouse.get_pos()
     for o in game.objects:
         o.draw(window)
         # o.draw_hitbox(window) # Debugging
-        o.draw_info(window, font_info)
+        # o.draw_info(window, font_info)
+
+    for o in game.objects:
+        if o.rect.collidepoint(mp):
+            o.draw_highlight(window)
+            o.draw_info(window, font_info, (game.width, game.height))
+            break
 
     # # Debug
     # if debug_text:

@@ -31,6 +31,7 @@ class Barracuda(Fish):
 
         self.n_fish_eaten = 0
         self.n_teeth = random.choice(self.teeth_options)
+        self.luck = random.randint(1, 5)
 
         self.set_shared_info()
 
@@ -78,15 +79,13 @@ class Barracuda(Fish):
                 print(f'{self.name} has ate {self.n_fish_eaten} with this amount of teeth -> {self.n_teeth}.')
 
     def format_info_lines(self: Barracuda) -> list[str]:
-        return [
-            f'{self.name} ({self.age} {self.gender})',
+        lines = super().format_info_lines()
+        lines.extend([
             f'Teeth: {self.n_teeth}',
-            f'Diet: {self.diet}'
             f'Luck: {self.luck}'
-        ]
+        ])
+        return lines
 
 if __name__ == '__main__':
     b = Barracuda('LOL', 'F')
     b.swim(5)   
-
-    
