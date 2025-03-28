@@ -71,5 +71,3 @@ class Barracuda(Fish):
 if __name__ == '__main__':
     b = Barracuda('LOL', 'F')
     b.swim(5)   
-
-    
