@@ -6,18 +6,16 @@ from foods.Food import Apple
 
 class Capybara(Rodent):
     """
-    Capybaras have no tail and can swim. Their diet consists of apples
-    and they're very friendly.
+    Capybaras have no tail and can swim. Their diet consists of apples and they're very friendly.
     """
     friendliness = 100
     speed = 25
     size = 25
     diet = [Apple]
-
+    
     def __init__(self: Capybara, args: dict[str, object]) -> None:
         """
-        Set has_tail to False.
-        Also set the energy meter for swimming.
+        Set the parent Rodent's attribute of 'has_tail' to false. Also sets the energy meter for swimming.
         """
         super().__init__(args)
         self.swim_energy_meter = 100
@@ -27,12 +25,12 @@ class Capybara(Rodent):
         self.set_shared_info()
 
     def move(self: Capybara, duration: int) -> None:
-        """Swim."""
+        """Move the capybara."""
         self.swim(duration)
 
     def swim(self: Capybara, duration: int) -> None:
         """
-        Take a duration and deduct the energy meter based on that duration.
+        Called from the default .move() method. Takes a duration and deducts the energy meter based on that duration
         If the energy meter goes below zero, the Capybara will not continue.
         """
         tiredness_factor = random.randint(1, 2)
@@ -50,7 +48,7 @@ class Capybara(Rodent):
 
     def format_info_lines(self: Capybara) -> list[str]:
         """
-        Return a list of strings containing info about this Otter.
+        Formats information into readable lines for the game, when the user hovers over the Capybara.
         """
         return [
             f'{self.name} ({self.age} {self.gender})',
