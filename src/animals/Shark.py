@@ -50,7 +50,7 @@ class Shark(Fish):
     
     def format_info_lines(self: Shark) -> str:
         """
-        Gives information on the animal
+        Gives information on the shark
         """        
         lines = super().format_info_lines()
         lines.extend([
