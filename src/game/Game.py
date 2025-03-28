@@ -20,8 +20,8 @@ from animals.Barracuda import Barracuda
 
 from game.constants import TERRAIN_LAND, TERRAIN_WATER
 
-MIN_ANIMALS = 5
-MAX_ANIMALS = 20
+MIN_ANIMALS = 1
+MAX_ANIMALS = 10
 ANIMALS = [Capybara, Cat, Husky, Chihuahua, Mutt, Elephant, Horse, Otter, Rat, Shark, Barracuda]
 # ANIMALS = [Cat]
 
@@ -121,6 +121,14 @@ class Game:
             if check_rect.colliderect(object.rect):
                 return True
         return False
+    
+    def update_objects(self: Game) -> None:
+        new_objects = []
+        for o in self.objects:
+            still_alive = o.update()
+            if still_alive:
+                new_objects.append(o)
+        self.objects = new_objects
 
 class GameState:
     """

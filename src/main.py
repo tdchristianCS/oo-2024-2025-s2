@@ -33,7 +33,7 @@ game.spawn_animals()
 
 # Timed events
 e_spawn_animal = pygame.USEREVENT + 1
-pygame.time.set_timer(e_spawn_animal, 1_000)
+pygame.time.set_timer(e_spawn_animal, 100)
 
 # Debugging...
 # game.debug_mousedown_pos = None
@@ -92,9 +92,10 @@ while game.state == gs_running:
     game.level.draw(window)
     # game.level.draw_water(window) # Debugging
 
+    game.update_objects()
+
     mp = pygame.mouse.get_pos()
     for o in game.objects:
-        o.update()
         o.draw(window)
         # o.draw_hitbox(window) # Debugging
         # o.draw_info(window, font_info)

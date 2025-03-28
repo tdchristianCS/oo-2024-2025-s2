@@ -123,6 +123,13 @@ class Animal(Entity):
             self.format_diet()
         ]
 
-    def update(self: Animal) -> None:
-        """Set age to the number of seconds passed."""
+    def update(self: Animal) -> bool:
+        """
+        Update this Animal.
+        - Set age to the number of seconds passed.
+        - TEST If age >= 10, the animal dies.
+
+        Return True iff the Animal is still alive at the end of the update.
+        """
         self.age = (pygame.time.get_ticks() - self.birth_age) // 1_000
+        return self.age < random.randint(8, 12)        

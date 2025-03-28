@@ -73,9 +73,9 @@ class GameObject:
         # Adjust
         max_x, max_y = bottomright
         if (x + width + EDGE_BOUNDARY) > max_x:
-            x += (max_x - (x + width + EDGE_BOUNDARY))
+            x -= ((x + width + EDGE_BOUNDARY) - max_x)
         if (y + height + EDGE_BOUNDARY) > max_y:
-            y += (max_y - (y + height + EDGE_BOUNDARY))
+            y -= ((y + height + EDGE_BOUNDARY) - max_y)
 
         # Show the actual lines
         for i in range(len(rendered_lines)):
@@ -119,6 +119,6 @@ class GameObject:
             y = self.rect.bottom + LINE_SPACING + ((rendered.get_height() + LINE_SPACING) * i)
             surface.blit(rendered, (x, y))
 
-    def update(self: GameObject) -> None:
-        self.entity.update()
+    def update(self: GameObject) -> bool:
+        return self.entity.update()
         
