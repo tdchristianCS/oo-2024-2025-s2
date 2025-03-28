@@ -7,10 +7,15 @@ from foods.Food import Food
 import pygame
 
 class Animal(Entity):
-    birth_age: int
-    age: int        # This is in seconds
+    """
+    An Animal is a type of Entity that is intended to move around,
+    eat, interact, die, etc.
+    """
+
+    birth_age: int  # This is in milliseconds
+    age: int        # This is in milliseconds
     name: str
-    gender: str
+    gender: str     # Currently limited to
     n_legs: int
     # IQ: int
     friendliness: int
@@ -19,8 +24,7 @@ class Animal(Entity):
     # domesticablity_pct: int
     size: float
     diet: list[Food]
-    can_ride: bool
-    image: object
+    # can_ride: bool
 
     def __init__(self: Animal, args: dict[str, object]) -> None:
         """
@@ -126,9 +130,9 @@ class Animal(Entity):
 
     def update(self: Animal) -> bool:
         """
-        Update this Animal.
+        Update this Animal's state.
         - Set age to the number of seconds passed.
-        - TEST If age >= 10, the animal dies.
+        - (TODO Testing) If age >= approximately 10, the animal dies.
 
         Return True iff the Animal is still alive at the end of the update.
         """

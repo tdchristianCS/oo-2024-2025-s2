@@ -8,10 +8,9 @@ from game.constants import TERRAIN_WATER, TERRAIN_LAND
 
 class Otter(Mammal):
     """
-    An Otter is a type of mammal that is 
-    intended to eat, move around, interact, die, etc.
-    It is distinguished by its ability to travel on 
-    water and land.
+    An Otter is a type of Mammal that is intended to eat, move around,
+    interact, die, etc. It is distinguished by its ability to travel on 
+    water and land. It also tracks its wetness.
     """
     wetness_fatigue: int
     speed = 20
@@ -21,8 +20,13 @@ class Otter(Mammal):
     
     def __init__(self: Otter, args: dict[str, object]) -> None:
         """
-        Quantifies how "wet" the otter is based on its movement 
-        over water and land.
+        Create a new Otter. Set its default fur_colour and terrains.
+        Also set a default wetness_fatigue that will be based on its
+        movement over water and land.
+
+        Expected args:
+            - name
+            - gender
         """
 
         args['fur_colour'] = 'brown'
@@ -32,20 +36,18 @@ class Otter(Mammal):
         
         self.set_shared_info()
 
-
     def move(self: Otter, duration: int) -> None:
         """
-        Determines the amount of time spent in the 
-        water and assigns the value to a variable.
+        Swim.
         """
         self.swim(duration)
 
     def swim(self: Otter, duration: int) -> None:
         """
-        If the otter is too wet, based on the wetness fatigue, 
-        then it won't be allowed into the water.
-        Othewise, it will be allowed into the water and the 
-        exaustion/wetness fatigue will be updated.
+        Swim for the given duration.
+        If the otter is too wet, based on the wetness fatigue, then it won't
+        be allowed into the water. Othewise, it will be allowed into the water
+        and the exaustion/wetness fatigue will be updated.
         """
         if self.wetness_fatigue > 90:
             print(f'{self.name} too tired of being wet; needs to dry off Currently at {self.wetness_fatigue}% humid.')
@@ -61,7 +63,7 @@ class Otter(Mammal):
 
     def format_info_lines(self: Otter) -> list[str]:
         """
-        Formatting for info popup.
+        Return a list of strings containing info about this Otter.
         """
         lines = super().format_info_lines()
         lines.extend([
