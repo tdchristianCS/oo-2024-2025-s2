@@ -34,6 +34,13 @@ class GameObject:
         tl_y = y - (self.image.get_height() / 2)
         self.rect = surface.blit(self.image, (tl_x, tl_y))
 
+    def draw_highlight(self: GameObject, surface: object) -> None:
+        x, y = self.point.x, self.point.y
+        bigger = pygame.transform.scale_by(self.image, 1.1)
+        tl_x = x - (bigger.get_width() / 2)
+        tl_y = y - (bigger.get_height() / 2)
+        self.rect = surface.blit(bigger, (tl_x, tl_y))
+
     def draw_hitbox(self: GameObject, surface: object) -> None:
         pygame.draw.rect(surface, '#ff00ff', self.rect, 2)
 

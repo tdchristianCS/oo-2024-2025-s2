@@ -102,6 +102,7 @@ while game.state == gs_running:
     for o in game.objects:
         if o.rect.collidepoint(mp):
             o.draw_info(window, font_info, (game.width, game.height))
+            o.draw_highlight(window)
             break
 
     # # Debug
