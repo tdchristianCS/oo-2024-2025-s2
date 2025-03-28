@@ -66,9 +66,9 @@ class GameObject:
         # Adjust
         max_x, max_y = bottomright
         if (x + width + EDGE_BOUNDARY) > max_x:
-            x -= width
+            x += (max_x - (x + width + EDGE_BOUNDARY))
         if (y + height + EDGE_BOUNDARY) > max_y:
-            y -= (height + self.rect.height)
+            y += (max_y - (y + height + EDGE_BOUNDARY))
 
         # Show the actual lines
         for i in range(len(rendered_lines)):
