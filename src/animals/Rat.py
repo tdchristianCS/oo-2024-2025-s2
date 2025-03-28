@@ -20,6 +20,7 @@ class Rat(Rodent):
         """
         Gets properties from "Rodent" class and sets has_tail to true.
         """
+        super().__init__(args)
 
         self.has_tail = True
         
